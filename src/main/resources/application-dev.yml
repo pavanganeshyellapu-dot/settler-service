@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/settler
+    username: settler
+    password: devpass
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.web: DEBUG
