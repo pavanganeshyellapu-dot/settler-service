@@ -19,14 +19,18 @@ public class ExpenseSplit {
     @Column(nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "expense_id", nullable = false)
-    private UUID expenseId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "expense_id", nullable = false)
+    private Expense expense;
 
     @Column(name = "user_id", nullable = false)
     private UUID userId;
 
     @Column(nullable = false)
     private BigDecimal amount;
+
+    @Column
+    private Double percentage;
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;

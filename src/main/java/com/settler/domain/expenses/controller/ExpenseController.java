@@ -1,15 +1,10 @@
 package com.settler.domain.expenses.controller;
 
-import com.settler.domain.expenses.entity.Expense;
+import com.settler.domain.expenses.dto.request.CreateExpenseRequest;
+import com.settler.domain.expenses.dto.response.ExpenseResponse;
 import com.settler.domain.expenses.service.IExpenseService;
-import com.settler.dto.common.ApiResponse;
-import com.settler.dto.common.ResponseBodyWrapper;
-import com.settler.dto.common.ResponseInfo;
-import com.settler.exceptions.BusinessException;
-import com.settler.exceptions.ErrorCode;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
+import com.settler.dto.common.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +13,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/expenses")
-@Tag(name = "Expense APIs", description = "Handles expense creation, retrieval and deletion")
+@RequestMapping("/api/v1/expenses")
+@Slf4j
 public class ExpenseController {
 
     private final IExpenseService expenseService;
@@ -28,84 +23,100 @@ public class ExpenseController {
         this.expenseService = expenseService;
     }
 
-    // ✅ Create new expense
+    /**
+     * ✅ Create new expense
+     */
     @PostMapping
-    @Operation(summary = "Create a new expense", description = "Adds an expense with given participants and split type")
-    public ResponseEntity<ApiResponse<?>> createExpense(
-            @RequestBody ExpenseCreateRequest request) {
+    public ResponseEntity<ApiResponse<Object>> createExpense(@RequestBody CreateExpenseRequest request) {
+        log.info("Received request to create expense for group {}", request.getGroupId());
 
-        try {
-            Expense expense = Expense.builder()
-                    .groupId(request.getGroupId())
-                    .payerId(request.getPayerId())
-                    .description(request.getDescription())
-                    .amount(request.getAmount())
-                    .splitType(request.getSplitType() == null ? "EQUAL" : request.getSplitType())
-                    .build();
+        ExpenseResponse created = expenseService.createExpense(request);
 
-            Expense saved = expenseService.addExpense(expense, request.getParticipantIds());
+        ApiResponse<Object> response = ApiResponse.<Object>builder()
+                .responseInfo(ResponseInfo.builder()
+                        .timestamp(OffsetDateTime.now())
+                        .responseCode("00")
+                        .responseMessage("Expense created successfully")
+                        .build())
+                .body(ResponseBodyWrapper.<Object>builder()
+                        .statusCode("200")
+                        .statusMessage("Success")
+                        .data(created)
+                        .build())
+                .build();
 
-            ResponseInfo info = ResponseInfo.builder()
-                    .timestamp(OffsetDateTime.now())
-                    .code(ErrorCode.SUCCESS.getCode())
-                    .message("Expense created successfully")
-                    .build();
-
-            ResponseBodyWrapper<Expense> body = ResponseBodyWrapper.<Expense>builder()
-                    .statusCode(String.valueOf(HttpStatus.CREATED.value()))
-                    .statusMessage(HttpStatus.CREATED.getReasonPhrase())
-                    .data(saved)
-                    .build();
-
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(ApiResponse.<Expense>builder().responseInfo(info).body(body).build());
-
-        } catch (BusinessException ex) {
-            throw ex;
-        } catch (Exception e) {
-            throw new BusinessException(ErrorCode.INTERNAL_ERROR, "Failed to create expense: " + e.getMessage());
-        }
+        return ResponseEntity.ok(response);
     }
 
-    // ✅ Get all expenses for a group
+    /**
+     * ✅ Get expense by ID
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<Object>> getExpense(@PathVariable UUID id) {
+        log.info("Fetching expense with ID {}", id);
+        ExpenseResponse expense = expenseService.getExpenseById(id);
+
+        ApiResponse<Object> response = ApiResponse.<Object>builder()
+                .responseInfo(ResponseInfo.builder()
+                        .timestamp(OffsetDateTime.now())
+                        .responseCode("00")
+                        .responseMessage("Success")
+                        .build())
+                .body(ResponseBodyWrapper.<Object>builder()
+                        .statusCode("200")
+                        .statusMessage("Expense details fetched")
+                        .data(expense)
+                        .build())
+                .build();
+
+        return ResponseEntity.ok(response);
+    }
+
+    /**
+     * ✅ Get all expenses for a group
+     */
     @GetMapping("/group/{groupId}")
-    @Operation(summary = "Get all expenses for a group")
-    public ResponseEntity<ApiResponse<?>> getExpensesByGroup(@PathVariable UUID groupId) {
-        List<Expense> expenses = expenseService.getExpensesByGroup(groupId);
+    public ResponseEntity<ApiResponse<Object>> getExpensesByGroup(@PathVariable UUID groupId) {
+        log.info("Fetching all expenses for group {}", groupId);
+        List<ExpenseResponse> expenses = expenseService.getExpensesByGroup(groupId);
 
-        ResponseInfo info = ResponseInfo.builder()
-                .timestamp(OffsetDateTime.now())
-                .code(ErrorCode.SUCCESS.getCode())
-                .message("Fetched successfully")
+        ApiResponse<Object> response = ApiResponse.<Object>builder()
+                .responseInfo(ResponseInfo.builder()
+                        .timestamp(OffsetDateTime.now())
+                        .responseCode("00")
+                        .responseMessage("Fetched all group expenses")
+                        .build())
+                .body(ResponseBodyWrapper.<Object>builder()
+                        .statusCode("200")
+                        .statusMessage("OK")
+                        .data(expenses)
+                        .build())
                 .build();
 
-        ResponseBodyWrapper<List<Expense>> body = ResponseBodyWrapper.<List<Expense>>builder()
-                .statusCode(String.valueOf(HttpStatus.OK.value()))
-                .statusMessage(HttpStatus.OK.getReasonPhrase())
-                .data(expenses)
-                .build();
-
-        return ResponseEntity.ok(ApiResponse.<List<Expense>>builder().responseInfo(info).body(body).build());
+        return ResponseEntity.ok(response);
     }
 
-    // ✅ Delete an expense by ID
-    @DeleteMapping("/{expenseId}")
-    @Operation(summary = "Delete an expense", description = "Removes the expense and its associated splits")
-    public ResponseEntity<ApiResponse<?>> deleteExpense(@PathVariable UUID expenseId) {
-        expenseService.deleteExpense(expenseId);
+    /**
+     * ✅ Get all expenses paid by a specific user
+     */
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<ApiResponse<Object>> getExpensesByUser(@PathVariable UUID userId) {
+        log.info("Fetching expenses paid by user {}", userId);
+        List<ExpenseResponse> expenses = expenseService.getExpensesByUser(userId);
 
-        ResponseInfo info = ResponseInfo.builder()
-                .timestamp(OffsetDateTime.now())
-                .code(ErrorCode.SUCCESS.getCode())
-                .message("Deleted successfully")
+        ApiResponse<Object> response = ApiResponse.<Object>builder()
+                .responseInfo(ResponseInfo.builder()
+                        .timestamp(OffsetDateTime.now())
+                        .responseCode("00")
+                        .responseMessage("Fetched user expenses")
+                        .build())
+                .body(ResponseBodyWrapper.<Object>builder()
+                        .statusCode("200")
+                        .statusMessage("OK")
+                        .data(expenses)
+                        .build())
                 .build();
 
-        ResponseBodyWrapper<String> body = ResponseBodyWrapper.<String>builder()
-                .statusCode(String.valueOf(HttpStatus.OK.value()))
-                .statusMessage("Expense deleted successfully")
-                .data("Deleted")
-                .build();
-
-        return ResponseEntity.ok(ApiResponse.<String>builder().responseInfo(info).body(body).build());
+        return ResponseEntity.ok(response);
     }
 }

@@ -27,9 +27,14 @@ public class Group {
     @Column(name = "owner_id", nullable = false)
     private UUID ownerId;
 
+    // FIX: Using @Builder.Default ensures the default value (= false)
+    // is respected when using Group.builder().build()
+    @Builder.Default
     @Column(name = "simplify_balances", nullable = false)
     private boolean simplifyBalances = false;
 
+    // FIX: Apply @Builder.Default here as well
+    @Builder.Default
     @Column(name = "allow_member_edits", nullable = false)
     private boolean allowMemberEdits = false;
 

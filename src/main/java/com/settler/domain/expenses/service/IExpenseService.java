@@ -1,15 +1,17 @@
 package com.settler.domain.expenses.service;
 
-import com.settler.domain.expenses.entity.Expense;
-
+import com.settler.domain.expenses.dto.request.CreateExpenseRequest;
+import com.settler.domain.expenses.dto.response.ExpenseResponse;
 import java.util.List;
 import java.util.UUID;
 
 public interface IExpenseService {
 
-    Expense addExpense(Expense expense, List<UUID> participantIds);
+    ExpenseResponse createExpense(CreateExpenseRequest request);
 
-    List<Expense> getExpensesByGroup(UUID groupId);
+    ExpenseResponse getExpenseById(UUID id);
 
-    void deleteExpense(UUID expenseId);
+    List<ExpenseResponse> getExpensesByGroup(UUID groupId);
+
+    List<ExpenseResponse> getExpensesByUser(UUID userId);
 }

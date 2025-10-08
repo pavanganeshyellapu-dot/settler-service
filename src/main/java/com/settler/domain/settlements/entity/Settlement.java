@@ -36,6 +36,9 @@ public class Settlement {
     @Column(name = "mode_of_payment", nullable = false)
     private String modeOfPayment; // CASH, UPI, PHONEPE, GPAY, PAYTM
 
+    // FIX: Added @Builder.Default to ensure 'false' is used as the default
+    // when using the Lombok builder.
+    @Builder.Default
     @Column(nullable = false)
     private boolean confirmed = false; // true after both users verify
 

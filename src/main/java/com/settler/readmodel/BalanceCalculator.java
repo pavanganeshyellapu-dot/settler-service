@@ -1,7 +1,10 @@
 package com.settler.readmodel;
 
 import com.settler.domain.expenses.entity.Expense;
+import com.settler.domain.expenses.entity.ExpenseSplit;
+
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 /**
@@ -13,26 +16,33 @@ public class BalanceCalculator {
 
     /**
      * @param expenses List of all expenses in a group
-     * @return Map<userId, netBalance>
+     * @return Map<UUID, BigDecimal>  // userId → net balance
      */
-    public static Map<String, BigDecimal> calculateNetBalances(List<Expense> expenses) {
-        Map<String, BigDecimal> balances = new HashMap<>();
+    public static Map<UUID, BigDecimal> calculateNetBalances(List<Expense> expenses) {
+        Map<UUID, BigDecimal> balances = new HashMap<>();
 
         for (Expense expense : expenses) {
-            String payerId = expense.getPaidBy();
+            UUID payerId = expense.getPaidBy();
             BigDecimal total = expense.getAmount();
-            List<String> participants = expense.getParticipants();
+            List<ExpenseSplit> participants = expense.getParticipants();
 
             if (participants == null || participants.isEmpty()) continue;
 
-            BigDecimal share = total.divide(BigDecimal.valueOf(participants.size()), 2, BigDecimal.ROUND_HALF_UP);
+            // Distribute equally if not specified
+            BigDecimal share = total
+                    .divide(BigDecimal.valueOf(participants.size()), 2, RoundingMode.HALF_UP);
 
-            // Add credit to payer
+            // ✅ 1. Add credit to payer (payer paid total, but owes only their share)
             balances.merge(payerId, total.subtract(share), BigDecimal::add);
 
-            // Deduct share for each participant (including payer)
-            for (String userId : participants) {
-                balances.merge(userId, share.negate(), BigDecimal::add);
+            // ✅ 2. Deduct share for each participant (including payer)
+            for (ExpenseSplit split : participants) {
+                UUID userId = split.getUserId();
+                BigDecimal individualShare = split.getAmount() != null
+                        ? split.getAmount()
+                        : share; // fallback to equal share if not specified
+
+                balances.merge(userId, individualShare.negate(), BigDecimal::add);
             }
         }
 

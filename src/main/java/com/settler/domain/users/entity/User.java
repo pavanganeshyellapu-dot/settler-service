@@ -22,13 +22,13 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    private String password; // 🔐 added
+    private String password; // 🔐 required for login
 
-    @Column(name = "display_name")
+    @Column(name = "display_name", nullable = false)
     private String displayName;
 
-    @Column(name = "role")
-    private String role; // 👤 added
+    @Column(nullable = false)
+    private String role; // e.g., USER / ADMIN
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;

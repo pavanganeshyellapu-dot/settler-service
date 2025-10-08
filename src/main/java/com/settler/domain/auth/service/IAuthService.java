@@ -1,8 +1,8 @@
 package com.settler.domain.auth.service;
 
+import com.settler.domain.auth.dto.AuthResponse;
 import com.settler.domain.auth.dto.LoginRequest;
 import com.settler.domain.auth.dto.RegisterRequest;
-import com.settler.domain.auth.dto.AuthResponse;
 
 public interface IAuthService {
     AuthResponse login(LoginRequest request);

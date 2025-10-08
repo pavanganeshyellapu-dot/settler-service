@@ -22,14 +22,19 @@ public class BalanceService {
 
         // Aggregate balances
         for (Expense e : expenses) {
-            double share = e.getAmount() / 2; // simplified logic for now
-            balanceMap.put(e.getPayerId(), balanceMap.getOrDefault(e.getPayerId(), 0.0) + share);
+            double share = e.getAmount().doubleValue() / 2; // simplified logic for now
+            balanceMap.put(e.getPaidBy(), balanceMap.getOrDefault(e.getPaidBy(), 0.0) + share);
             balanceMap.put(e.getGroupId(), balanceMap.getOrDefault(e.getGroupId(), 0.0) - share);
         }
 
         // Convert to list of simplified transactions
         return balanceMap.entrySet().stream()
-                .map(entry -> Map.of("userId", entry.getKey(), "balance", entry.getValue()))
+                .map(entry -> {
+                    Map<String, Object> m = new HashMap<>();
+                    m.put("userId", entry.getKey());
+                    m.put("balance", entry.getValue());
+                    return m;
+                })
                 .collect(Collectors.toList());
     }
 }

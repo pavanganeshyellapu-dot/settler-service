@@ -1,16 +1,17 @@
-package com.settler.domain.auth.service;
+package com.settler.domain.auth.service.impl;
 
 import com.settler.domain.auth.dto.AuthResponse;
 import com.settler.domain.auth.dto.LoginRequest;
 import com.settler.domain.auth.dto.RegisterRequest;
 import com.settler.domain.users.entity.User;
 import com.settler.domain.users.repo.UserRepository;
-import com.settler.service.jwt.JwtTokenProvider;
+import com.settler.config.security.JwtTokenProvider;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.settler.domain.auth.service.IAuthService;
 
 @Service
 public class AuthServiceImpl implements IAuthService {
@@ -57,8 +58,8 @@ public class AuthServiceImpl implements IAuthService {
         Authentication auth = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
-        String token = tokenProvider.generateToken(auth);
 
+        String token = tokenProvider.generateToken(auth);
         return new AuthResponse(token);
     }
 }

@@ -9,6 +9,6 @@ public abstract class BaseController {
     }
 
     protected <T> ApiResponse<T> fail(String message) {
-        return ApiResponse.failure(message, 400);
+        return ApiResponse.failure(message);
     }
 }
