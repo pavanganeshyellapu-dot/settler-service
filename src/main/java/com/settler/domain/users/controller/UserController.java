@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -59,31 +58,6 @@ public class UserController {
                 .body(ResponseBodyWrapper.builder()
                         .statusCode("200")
                         .statusMessage("OK")
-                        .data(user)
-                        .build())
-                .build();
-
-        return ResponseEntity.ok(response);
-    }
-
-    /** 👤 Anyone with valid token (USER/ADMIN) can create themselves **/
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    @PostMapping
-    public ResponseEntity<ApiResponse<Object>> createUser(@RequestBody Map<String, String> body) {
-        String email = body.get("email");
-        String displayName = body.get("displayName");
-
-        User user = userService.createUser(email, displayName);
-
-        ApiResponse<Object> response = ApiResponse.builder()
-                .responseInfo(ResponseInfo.builder()
-                        .timestamp(OffsetDateTime.now())
-                        .responseCode("00")
-                        .responseMessage("User created successfully")
-                        .build())
-                .body(ResponseBodyWrapper.builder()
-                        .statusCode("200")
-                        .statusMessage("Success")
                         .data(user)
                         .build())
                 .build();

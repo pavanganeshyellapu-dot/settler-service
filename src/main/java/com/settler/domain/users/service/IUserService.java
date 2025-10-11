@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  * Contract for user-related operations.
  */
-public interface IUserService {
+public interface    IUserService {
 
     /**
      * Create a new user with given email and display name.

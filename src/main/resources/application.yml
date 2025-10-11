@@ -1,16 +1,27 @@
 spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
   datasource:
     url: jdbc:postgresql://localhost:5432/settler
     username: settler
     password: devpass
     driver-class-name: org.postgresql.Driver
+    hikari:
+      register-mbeans: false
+      pool-name: HikariPool-1
+      auto-commit: true
 
   jpa:
     hibernate:
       ddl-auto: none  # Flyway manages schema, don't auto-create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgresSQLDialect
+        org:
+          hibernate:
+            dialect:
+              PostgreSQLDialect:
         jdbc.time_zone: UTC
         format_sql: true
         show_sql: false
@@ -22,6 +33,8 @@ spring:
     baseline-on-migrate: true
     clean-disabled: true
     validate-on-migrate: true
+    repair-before-migrate: true
+    schemas: public
 
 server:
   port: 8080
@@ -37,5 +50,8 @@ logging:
 
 jwt:
   secret: "SETTLER_SUPER_SECRET_KEY_1234567890"
-  expiration-ms: 86400000  # 24 hours
+  expiration-ms: 7776000000  # 24 hours
+
+lifecycle:
+  timeout-per-shutdown-phase: 10s
 
