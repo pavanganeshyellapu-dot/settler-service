@@ -60,6 +60,7 @@ public class AuthServiceImpl implements IAuthService {
                 .email(user.getEmail())
                 .displayName(user.getDisplayName())
                 .role(user.getRole().name())
+                .user(String.valueOf(user.getId()))
                 .build();
     }
 
@@ -87,6 +88,7 @@ public class AuthServiceImpl implements IAuthService {
                 .email(user.getEmail())
                 .displayName(user.getDisplayName())
                 .role(user.getRole().name())
+                .user(String.valueOf(user.getId()))
                 .build();
     }
 }

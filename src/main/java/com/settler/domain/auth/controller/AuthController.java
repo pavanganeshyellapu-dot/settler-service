@@ -37,7 +37,7 @@ public class AuthController {
     }
 
     /** 🧠 Optional health/test endpoint **/
-    @GetMapping("/ping")
+    @GetMapping("/health")
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok("✅ AuthController is up and running");
     }

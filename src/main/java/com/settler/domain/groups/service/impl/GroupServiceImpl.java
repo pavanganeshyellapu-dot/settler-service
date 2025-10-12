@@ -1,7 +1,8 @@
-package com.settler.domain.groups.service;
+package com.settler.domain.groups.service.impl;
 
 import com.settler.domain.groups.entity.Group;
 import com.settler.domain.groups.repo.GroupRepository;
+import com.settler.domain.groups.service.IGroupService;
 import com.settler.exceptions.BusinessException;
 import com.settler.exceptions.ErrorCode;
 import org.springframework.stereotype.Service;

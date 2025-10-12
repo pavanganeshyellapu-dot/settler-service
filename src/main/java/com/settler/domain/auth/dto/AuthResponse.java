@@ -2,6 +2,8 @@ package com.settler.domain.auth.dto;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -12,4 +14,5 @@ public class AuthResponse {
     private String displayName;
     private String role;
     private String user;
+    private UUID id;
 }
