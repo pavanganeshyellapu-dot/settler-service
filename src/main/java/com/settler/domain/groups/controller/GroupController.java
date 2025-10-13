@@ -2,6 +2,8 @@ package com.settler.domain.groups.controller;
 
 import com.settler.domain.groups.entity.Group;
 import com.settler.domain.groups.service.IGroupService;
+import com.settler.domain.groups.mapper.GroupMapper;
+import com.settler.domain.groups.dto.GroupResponse;
 import com.settler.dto.common.ApiResponse;
 import com.settler.dto.common.ResponseBodyWrapper;
 import com.settler.dto.common.ResponseInfo;
@@ -32,6 +34,7 @@ public class GroupController {
         UUID ownerId = UUID.fromString((String) req.get("ownerId"));
 
         Group group = groupService.createGroup(name, currencyCode, ownerId);
+        GroupResponse dto = GroupMapper.toDto(group);
 
         ApiResponse<Object> response = ApiResponse.builder()
                 .responseInfo(ResponseInfo.builder()
@@ -42,7 +45,7 @@ public class GroupController {
                 .body(ResponseBodyWrapper.builder()
                         .statusCode("200")
                         .statusMessage("Success")
-                        .data(group)
+                        .data(dto)
                         .build())
                 .build();
 
@@ -50,10 +53,11 @@ public class GroupController {
     }
 
     /** 📋 Get all groups for a specific user **/
-    @GetMapping("/user/{userId}")
+    @GetMapping("/by-user/{userId}")
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<ApiResponse<Object>> getGroupsByUser(@PathVariable UUID userId) {
         List<Group> groups = groupService.getGroupsByUser(userId);
+        List<GroupResponse> dtos = GroupMapper.toDtoList(groups);
 
         ApiResponse<Object> response = ApiResponse.builder()
                 .responseInfo(ResponseInfo.builder()
@@ -64,7 +68,7 @@ public class GroupController {
                 .body(ResponseBodyWrapper.builder()
                         .statusCode("200")
                         .statusMessage("Success")
-                        .data(groups)
+                        .data(dtos)
                         .build())
                 .build();
 
@@ -76,6 +80,7 @@ public class GroupController {
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<ApiResponse<Object>> getGroupById(@PathVariable UUID groupId) {
         Group group = groupService.getGroupById(groupId);
+        GroupResponse dto = GroupMapper.toDto(group);
 
         ApiResponse<Object> response = ApiResponse.builder()
                 .responseInfo(ResponseInfo.builder()
@@ -86,7 +91,31 @@ public class GroupController {
                 .body(ResponseBodyWrapper.builder()
                         .statusCode("200")
                         .statusMessage("Success")
-                        .data(group)
+                        .data(dto)
+                        .build())
+                .build();
+
+        return ResponseEntity.ok(response);
+    }
+
+    /** 👤 Get all groups for the logged-in user **/
+    @GetMapping("/my")
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    public ResponseEntity<ApiResponse<Object>> getMyGroups(Authentication authentication) {
+        String email = authentication.getName();
+        List<Group> groups = groupService.getGroupsByUserEmail(email);
+        List<GroupResponse> dtos = GroupMapper.toDtoList(groups);
+
+        ApiResponse<Object> response = ApiResponse.builder()
+                .responseInfo(ResponseInfo.builder()
+                        .timestamp(OffsetDateTime.now())
+                        .responseCode("00")
+                        .responseMessage("Fetched my groups successfully")
+                        .build())
+                .body(ResponseBodyWrapper.builder()
+                        .statusCode("200")
+                        .statusMessage("Success")
+                        .data(dtos)
                         .build())
                 .build();
 

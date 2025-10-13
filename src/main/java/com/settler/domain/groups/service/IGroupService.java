@@ -9,4 +9,5 @@ public interface IGroupService {
     List<Group> getGroupsByUser(UUID userId);
     Group getGroupById(UUID groupId);
     void deleteGroup(UUID groupId);
+    List<Group> getGroupsByUserEmail(String email);
 }

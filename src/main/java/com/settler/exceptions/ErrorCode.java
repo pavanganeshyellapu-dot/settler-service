@@ -10,7 +10,8 @@ public enum ErrorCode {
     GROUP_NOT_FOUND("05", "Group not found"),
     INTERNAL_ERROR("99", "Internal server error"), 
     SETTLEMENT_NOT_FOUND("13", "Settlement not found"),
-    USER_NOT_FOUND("10", "User not found");
+    USER_NOT_FOUND("10", "User not found"),
+    ALREADY_EXISTS("11", "Already Exists");
 
     private final String code;
     private final String message;

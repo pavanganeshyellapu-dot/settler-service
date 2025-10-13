@@ -1,37 +1,47 @@
+package com.settler.domain.groups.entity;
 
-package com.settler.domain.groups;
+import com.settler.domain.users.entity.User;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "group_members")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class GroupMember {
 
-	@Id
-	@Column(name = "group_id", columnDefinition = "uuid")
-	private UUID groupId;
+    @Id
+    @GeneratedValue
+    private UUID id;
 
-	@Id
-	@Column(name = "user_id", columnDefinition = "uuid")
-	private UUID userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id", nullable = false)
+    private Group group;
 
-	@Builder.Default
-	@Column(nullable = false)
-	private String role = "MEMBER";
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-	@Builder.Default
-	@Column(name = "joined_at", nullable = false)
-	private OffsetDateTime joinedAt = OffsetDateTime.now();
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;   // ADMIN / MEMBER
+
+    @Column(name = "joined_at", nullable = false)
+    private OffsetDateTime joinedAt;
+
+    @PrePersist
+    public void prePersist() {
+        if (joinedAt == null) joinedAt = OffsetDateTime.now();
+        if (role == null) role = Role.MEMBER;
+    }
+
+    public enum Role {
+        ADMIN, MEMBER
+    }
 }
