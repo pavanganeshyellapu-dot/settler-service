@@ -4,3 +4,915 @@
 {"timestamp":"2025-10-12T02:08:30.294+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
 {"timestamp":"2025-10-12T02:08:30.379+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
 {"timestamp":"2025-10-12T02:08:30.431+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
+{"timestamp":"2025-10-12T02:08:35.360+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T02:08:35.488+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 2060 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T02:08:35.489+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T02:08:35.490+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T02:08:37.342+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T02:08:37.344+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T02:08:37.764+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 404 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T02:08:37.802+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T02:08:37.806+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T02:08:37.850+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T02:08:37.851+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T02:08:37.851+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T02:08:37.852+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T02:08:37.852+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T02:08:37.853+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T02:08:39.029+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T02:08:39.052+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T02:08:39.055+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T02:08:39.055+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T02:08:39.200+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T02:08:39.200+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 3646 ms"}
+{"timestamp":"2025-10-12T02:08:39.683+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T02:08:40.042+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e76a66f"}
+{"timestamp":"2025-10-12T02:08:40.046+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T02:08:40.107+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T02:08:40.141+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T02:08:40.349+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.170s)"}
+{"timestamp":"2025-10-12T02:08:40.375+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T02:08:40.384+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T02:08:40.624+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T02:08:41.582+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T02:08:42.288+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T02:08:42.881+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T02:08:43.055+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T02:08:44.460+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T02:08:44.460+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T02:08:47.742+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T02:08:47.752+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T02:08:48.628+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T02:08:48.628+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T02:08:48.690+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T02:08:48.698+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T02:08:48.706+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T02:08:48.718+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.017s)."}
+{"timestamp":"2025-10-12T02:08:48.723+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T02:08:48.723+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T02:08:48.728+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T02:08:48.740+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.009s)"}
+{"timestamp":"2025-10-12T02:08:48.747+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T02:08:48.748+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T02:08:48.751+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T02:08:48.858+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T02:08:48.859+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T02:08:48.964+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T02:08:53.138+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T02:08:53.191+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T02:08:53.209+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 18.904 seconds (process running for 21.064)"}
+{"timestamp":"2025-10-12T02:08:53.380+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:08:53.584+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    insert 
+    into
+        users
+        (created_at, display_name, email, password, role, id) 
+    values
+        (?, ?, ?, ?, ?, ?)"}
+{"timestamp":"2025-10-12T02:08:53.598+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"✅ Default admin user created: admin@settler.com / Rahulsaiy18"}
+{"timestamp":"2025-10-12T02:08:53.601+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T02:08:55.394+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-1","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T02:08:55.394+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-1","logger":"o.s.web.servlet.DispatcherServlet","message":"Initializing Servlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T02:08:55.396+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-1","logger":"o.s.web.servlet.DispatcherServlet","message":"Completed initialization in 1 ms"}
+{"timestamp":"2025-10-12T02:08:55.520+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-1","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:09:15.515+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-8","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:09:15.532+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-8","logger":"c.s.d.u.service.impl.UserServiceImpl","message":"🔍 [Service] Fetching user by email: Rahul@1test.com"}
+{"timestamp":"2025-10-12T02:09:15.537+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-8","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:13:47.549+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-5","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:13:47.810+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-5","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:14:15.353+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:14:15.411+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-4","logger":"c.s.d.u.service.impl.UserServiceImpl","message":"📋 [Service] Fetching all users"}
+{"timestamp":"2025-10-12T02:14:15.559+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0"}
+{"timestamp":"2025-10-12T02:15:08.470+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:15:08.626+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:15:26.448+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:15:26.602+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T02:52:49.547+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m8s73ms859µs400ns)."}
+{"timestamp":"2025-10-12T04:28:29.076+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h18m37s788ms786µs800ns)."}
+{"timestamp":"2025-10-12T04:58:17.612+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m18s150ms789µs700ns)."}
+{"timestamp":"2025-10-12T05:38:40.121+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T05:38:40.228+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T05:38:40.654+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T05:38:40.703+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
+{"timestamp":"2025-10-12T05:38:40.749+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
+{"timestamp":"2025-10-12T15:59:18.014+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T15:59:18.229+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 22656 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T15:59:18.230+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T15:59:18.232+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T15:59:20.535+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T15:59:20.544+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T15:59:21.017+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 451 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T15:59:21.061+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T15:59:21.064+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T15:59:21.133+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T15:59:21.134+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T15:59:21.134+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T15:59:21.135+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T15:59:21.135+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T15:59:21.135+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T15:59:22.945+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T15:59:22.993+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T15:59:22.996+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T15:59:22.996+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T15:59:23.131+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T15:59:23.132+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 4813 ms"}
+{"timestamp":"2025-10-12T15:59:23.662+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T15:59:24.084+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@407b41e6"}
+{"timestamp":"2025-10-12T15:59:24.087+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T15:59:24.157+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T15:59:24.198+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T15:59:24.397+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.160s)"}
+{"timestamp":"2025-10-12T15:59:24.422+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T15:59:24.430+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T15:59:24.676+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T15:59:24.846+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T15:59:24.952+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T15:59:25.767+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T15:59:25.982+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T15:59:26.888+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T15:59:26.888+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T15:59:28.661+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T15:59:28.668+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T15:59:29.406+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T15:59:29.408+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T15:59:29.518+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T15:59:29.531+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T15:59:29.549+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T15:59:29.579+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.042s)."}
+{"timestamp":"2025-10-12T15:59:29.592+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T15:59:29.594+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T15:59:29.603+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T15:59:29.627+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.017s)"}
+{"timestamp":"2025-10-12T15:59:29.652+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T15:59:29.655+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T15:59:29.659+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T15:59:29.802+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T15:59:29.803+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T15:59:29.976+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T15:59:37.453+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T15:59:37.527+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T15:59:37.547+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 20.96 seconds (process running for 24.207)"}
+{"timestamp":"2025-10-12T15:59:37.759+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T15:59:37.843+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"🟢 Admin user already exists."}
+{"timestamp":"2025-10-12T15:59:37.844+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T16:06:48.614+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:06:48.618+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.s.web.servlet.DispatcherServlet","message":"Initializing Servlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:06:48.656+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.s.web.servlet.DispatcherServlet","message":"Completed initialization in 38 ms"}
+{"timestamp":"2025-10-12T16:06:55.286+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:06:55.476+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:08:57.431+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-7","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:08:57.587+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-7","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:22:32.391+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m37s867ms210µs)."}
+{"timestamp":"2025-10-12T16:36:53.790+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T16:36:53.823+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T16:37:57.146+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T16:37:57.296+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 10452 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T16:37:57.298+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T16:37:57.299+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T16:37:59.660+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:37:59.663+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:38:00.214+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 526 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T16:38:00.260+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:38:00.263+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:38:00.318+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:38:00.319+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:38:00.319+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:38:00.319+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:38:00.321+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:38:00.321+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T16:38:02.011+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T16:38:02.041+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:38:02.043+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T16:38:02.045+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T16:38:02.189+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T16:38:02.189+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 4787 ms"}
+{"timestamp":"2025-10-12T16:38:02.785+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T16:38:03.297+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@256a5df0"}
+{"timestamp":"2025-10-12T16:38:03.301+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T16:38:03.380+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T16:38:03.418+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:38:03.526+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.075s)"}
+{"timestamp":"2025-10-12T16:38:03.555+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:38:03.564+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:38:03.885+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T16:38:04.148+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T16:38:04.297+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T16:38:05.447+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T16:38:05.704+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T16:38:06.593+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:38:06.593+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:38:07.815+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T16:38:07.822+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T16:38:08.416+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T16:38:08.419+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T16:38:08.477+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T16:38:08.481+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:38:08.489+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T16:38:08.498+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.011s)."}
+{"timestamp":"2025-10-12T16:38:08.502+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T16:38:08.502+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T16:38:08.504+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:38:08.514+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.006s)"}
+{"timestamp":"2025-10-12T16:38:08.519+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:38:08.521+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:38:08.521+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T16:38:08.592+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T16:38:08.592+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T16:38:08.679+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T16:38:12.334+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:38:12.363+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T16:38:12.378+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 16.642 seconds (process running for 18.839)"}
+{"timestamp":"2025-10-12T16:38:12.526+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:38:12.591+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"🟢 Admin user already exists."}
+{"timestamp":"2025-10-12T16:38:12.595+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T16:39:39.658+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T16:39:39.667+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T16:39:39.699+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T16:39:39.702+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
+{"timestamp":"2025-10-12T16:39:39.708+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
+{"timestamp":"2025-10-12T16:39:45.768+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T16:39:45.864+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 27960 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T16:39:45.865+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T16:39:45.866+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T16:39:47.552+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:39:47.556+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:39:47.890+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 319 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T16:39:47.916+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:39:47.919+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:39:47.959+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:39:47.960+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:39:47.960+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:39:47.960+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:39:47.961+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:39:47.961+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T16:39:49.017+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T16:39:49.049+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:39:49.051+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T16:39:49.053+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T16:39:49.188+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T16:39:49.188+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 3262 ms"}
+{"timestamp":"2025-10-12T16:39:49.580+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T16:39:49.845+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70543cae"}
+{"timestamp":"2025-10-12T16:39:49.849+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T16:39:49.896+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T16:39:49.912+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:39:49.984+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.054s)"}
+{"timestamp":"2025-10-12T16:39:50.052+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:39:50.058+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:39:50.235+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T16:39:50.325+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T16:39:50.385+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T16:39:50.780+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T16:39:50.916+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T16:39:51.390+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:39:51.390+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:39:52.243+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T16:39:52.253+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T16:39:52.695+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T16:39:52.696+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T16:39:52.733+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T16:39:52.737+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:39:52.743+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T16:39:52.750+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.010s)."}
+{"timestamp":"2025-10-12T16:39:52.753+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T16:39:52.753+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T16:39:52.756+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:39:52.764+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.005s)"}
+{"timestamp":"2025-10-12T16:39:52.771+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:39:52.772+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:39:52.773+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T16:39:52.854+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T16:39:52.855+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T16:39:52.955+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T16:39:55.279+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:39:55.313+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T16:39:55.323+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 10.577 seconds (process running for 11.837)"}
+{"timestamp":"2025-10-12T16:39:55.443+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:39:55.475+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"🟢 Admin user already exists."}
+{"timestamp":"2025-10-12T16:39:55.477+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T16:40:09.498+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:40:09.498+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.s.web.servlet.DispatcherServlet","message":"Initializing Servlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:40:09.500+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"o.s.web.servlet.DispatcherServlet","message":"Completed initialization in 2 ms"}
+{"timestamp":"2025-10-12T16:40:47.986+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T16:40:47.995+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T16:40:48.024+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T16:40:48.028+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
+{"timestamp":"2025-10-12T16:40:48.038+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
+{"timestamp":"2025-10-12T16:40:53.573+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T16:40:53.693+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 19708 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T16:40:53.695+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T16:40:53.696+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T16:40:55.601+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:40:55.604+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:40:56.042+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 419 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T16:40:56.069+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T16:40:56.071+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T16:40:56.116+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:40:56.116+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:40:56.116+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:40:56.117+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:40:56.117+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T16:40:56.117+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 30 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T16:40:57.347+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T16:40:57.396+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:40:57.399+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T16:40:57.400+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T16:40:57.549+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T16:40:57.549+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 3739 ms"}
+{"timestamp":"2025-10-12T16:40:58.016+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T16:40:58.380+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1fca53a7"}
+{"timestamp":"2025-10-12T16:40:58.380+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T16:40:58.428+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T16:40:58.446+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:40:58.515+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.052s)"}
+{"timestamp":"2025-10-12T16:40:58.567+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:40:58.571+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:40:58.760+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T16:40:58.846+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T16:40:58.902+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T16:40:59.403+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T16:40:59.541+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T16:41:00.179+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:41:00.179+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T16:41:01.286+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T16:41:01.293+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T16:41:01.800+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T16:41:01.807+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T16:41:01.853+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T16:41:01.862+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:41:01.870+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T16:41:01.876+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.012s)."}
+{"timestamp":"2025-10-12T16:41:01.881+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T16:41:01.881+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T16:41:01.886+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T16:41:01.892+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.006s)"}
+{"timestamp":"2025-10-12T16:41:01.897+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T16:41:01.899+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T16:41:01.899+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T16:41:01.974+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T16:41:01.974+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T16:41:02.065+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T16:41:04.798+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T16:41:04.822+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T16:41:04.837+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 12.553 seconds (process running for 14.462)"}
+{"timestamp":"2025-10-12T16:41:04.967+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T16:41:05.041+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"🟢 Admin user already exists."}
+{"timestamp":"2025-10-12T16:41:05.042+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T16:41:46.477+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:41:46.477+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.s.web.servlet.DispatcherServlet","message":"Initializing Servlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T16:41:46.479+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.s.web.servlet.DispatcherServlet","message":"Completed initialization in 2 ms"}
+{"timestamp":"2025-10-12T18:07:49.727+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m38s107ms298µs900ns)."}
+{"timestamp":"2025-10-12T18:08:19.821+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=31m42s773ms806µs500ns)."}
+{"timestamp":"2025-10-12T19:15:29.161+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m8s856ms857µs900ns)."}
+{"timestamp":"2025-10-12T19:29:17.998+0530","level":"WARN","traceId":"","thread":"HikariPool-1:housekeeper","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m48s898ms821µs900ns)."}
+{"timestamp":"2025-10-12T19:29:57.680+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T19:29:57.857+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T19:29:58.965+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T19:29:59.227+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
+{"timestamp":"2025-10-12T19:29:59.356+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
+{"timestamp":"2025-10-12T23:31:26.802+0530","level":"INFO","traceId":"","thread":"background-preinit","logger":"o.h.validator.internal.util.Version","message":"HV000001: Hibernate Validator 8.0.3.Final"}
+{"timestamp":"2025-10-12T23:31:26.964+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Starting SettlerServiceApplication using Java 21.0.8 with PID 10904 (C:\Java-Projects\Crimsontriad\Settler\settler-service-0\target\classes started by Pavan in C:\Java-Projects\Crimsontriad\Settler\settler-service-0)"}
+{"timestamp":"2025-10-12T23:31:26.965+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Running with Spring Boot v3.5.6, Spring v6.2.11"}
+{"timestamp":"2025-10-12T23:31:26.967+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"No active profile set, falling back to 1 default profile: "default""}
+{"timestamp":"2025-10-12T23:31:30.688+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T23:31:30.706+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data JPA repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T23:31:31.404+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 640 ms. Found 5 JPA repository interfaces."}
+{"timestamp":"2025-10-12T23:31:31.443+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+{"timestamp":"2025-10-12T23:31:31.446+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+{"timestamp":"2025-10-12T23:31:31.497+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T23:31:31.498+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.expenses.repo.ExpenseSplitRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T23:31:31.498+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.groups.repo.GroupRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T23:31:31.498+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.settlements.repo.SettlementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T23:31:31.499+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationExtensionSupport","message":"Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settler.domain.users.repo.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository"}
+{"timestamp":"2025-10-12T23:31:31.499+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.r.c.RepositoryConfigurationDelegate","message":"Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces."}
+{"timestamp":"2025-10-12T23:31:36.321+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat initialized with port 8080 (http)"}
+{"timestamp":"2025-10-12T23:31:36.372+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Initializing ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T23:31:36.380+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardService","message":"Starting service [Tomcat]"}
+{"timestamp":"2025-10-12T23:31:36.382+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.catalina.core.StandardEngine","message":"Starting Servlet engine: [Apache Tomcat/10.1.46]"}
+{"timestamp":"2025-10-12T23:31:36.640+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring embedded WebApplicationContext"}
+{"timestamp":"2025-10-12T23:31:36.640+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.s.c.ServletWebServerApplicationContext","message":"Root WebApplicationContext: initialization completed in 9575 ms"}
+{"timestamp":"2025-10-12T23:31:37.231+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Starting..."}
+{"timestamp":"2025-10-12T23:31:37.644+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.pool.HikariPool","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@249a45fd"}
+{"timestamp":"2025-10-12T23:31:37.649+0530","level":"INFO","traceId":"","thread":"main","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Start completed."}
+{"timestamp":"2025-10-12T23:31:37.727+0530","level":"INFO","traceId":"","thread":"main","logger":"org.flywaydb.core.FlywayExecutor","message":"Database: jdbc:postgresql://localhost:5432/settler (PostgreSQL 18.0)"}
+{"timestamp":"2025-10-12T23:31:37.778+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T23:31:37.938+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.120s)"}
+{"timestamp":"2025-10-12T23:31:37.970+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T23:31:37.979+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T23:31:38.240+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.jpa.internal.util.LogHelper","message":"HHH000204: Processing PersistenceUnitInfo [name: default]"}
+{"timestamp":"2025-10-12T23:31:38.730+0530","level":"INFO","traceId":"","thread":"main","logger":"org.hibernate.Version","message":"HHH000412: Hibernate ORM core version 6.6.29.Final"}
+{"timestamp":"2025-10-12T23:31:39.033+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.c.i.RegionFactoryInitiator","message":"HHH000026: Second-level cache disabled"}
+{"timestamp":"2025-10-12T23:31:39.757+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.p.SpringPersistenceUnitInfo","message":"No LoadTimeWeaver setup: ignoring JPA class transformer"}
+{"timestamp":"2025-10-12T23:31:39.941+0530","level":"INFO","traceId":"","thread":"main","logger":"o.hibernate.orm.connections.pooling","message":"HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown"}
+{"timestamp":"2025-10-12T23:31:40.922+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000038: Composite-id class does not override equals(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T23:31:40.922+0530","level":"WARN","traceId":"","thread":"main","logger":"org.hibernate.mapping.RootClass","message":"HHH000039: Composite-id class does not override hashCode(): com.settler.domain.groups.GroupMember"}
+{"timestamp":"2025-10-12T23:31:43.924+0530","level":"INFO","traceId":"","thread":"main","logger":"o.h.e.t.j.p.i.JtaPlatformInitiator","message":"HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)"}
+{"timestamp":"2025-10-12T23:31:43.939+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Initialized JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T23:31:44.980+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.c.s.JwtAuthenticationFilter","message":"Filter 'jwtAuthenticationFilter' configured for use"}
+{"timestamp":"2025-10-12T23:31:44.982+0530","level":"DEBUG","traceId":"","thread":"main","logger":"c.s.config.filter.E2ERequestFilter","message":"Filter 'e2ERequestFilter' configured for use"}
+{"timestamp":"2025-10-12T23:31:45.050+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🧹 Running Flyway repair before migration..."}
+{"timestamp":"2025-10-12T23:31:45.056+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T23:31:45.067+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.c.i.s.JdbcTableSchemaHistory","message":"Repair of failed migration in Schema History table "public"."flyway_schema_history" not necessary. No failed migration detected."}
+{"timestamp":"2025-10-12T23:31:45.076+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbRepair","message":"Successfully repaired schema history table "public"."flyway_schema_history" (execution time 00:00.015s)."}
+{"timestamp":"2025-10-12T23:31:45.082+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway repair completed successfully."}
+{"timestamp":"2025-10-12T23:31:45.082+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"🚀 Running Flyway migration..."}
+{"timestamp":"2025-10-12T23:31:45.087+0530","level":"WARN","traceId":"","thread":"main","logger":"o.f.c.i.database.base.Database","message":"Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17."}
+{"timestamp":"2025-10-12T23:31:45.098+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbValidate","message":"Successfully validated 4 migrations (execution time 00:00.008s)"}
+{"timestamp":"2025-10-12T23:31:45.105+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Current version of schema "public": 005"}
+{"timestamp":"2025-10-12T23:31:45.105+0530","level":"INFO","traceId":"","thread":"main","logger":"o.f.core.internal.command.DbMigrate","message":"Schema "public" is up to date. No migration necessary."}
+{"timestamp":"2025-10-12T23:31:45.107+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.config.flyway.FlywayRepairConfig","message":"✅ Flyway migration completed successfully."}
+{"timestamp":"2025-10-12T23:31:45.224+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer","message":"Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider"}
+{"timestamp":"2025-10-12T23:31:45.224+0530","level":"WARN","traceId":"","thread":"main","logger":"o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer","message":"Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR"}
+{"timestamp":"2025-10-12T23:31:45.354+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.d.j.r.query.QueryEnhancerFactory","message":"Hibernate is in classpath; If applicable, HQL parser will be used."}
+{"timestamp":"2025-10-12T23:31:50.183+0530","level":"INFO","traceId":"","thread":"main","logger":"o.a.coyote.http11.Http11NioProtocol","message":"Starting ProtocolHandler ["http-nio-8080"]"}
+{"timestamp":"2025-10-12T23:31:50.226+0530","level":"INFO","traceId":"","thread":"main","logger":"o.s.b.w.e.tomcat.TomcatWebServer","message":"Tomcat started on port 8080 (http) with context path '/'"}
+{"timestamp":"2025-10-12T23:31:50.243+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"Started SettlerServiceApplication in 24.881 seconds (process running for 27.575)"}
+{"timestamp":"2025-10-12T23:31:50.406+0530","level":"DEBUG","traceId":"","thread":"main","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:31:50.479+0530","level":"INFO","traceId":"","thread":"main","logger":"c.s.d.u.service.impl.DataInitializer","message":"🟢 Admin user already exists."}
+{"timestamp":"2025-10-12T23:31:50.480+0530","level":"INFO","traceId":"","thread":"main","logger":"c.settler.SettlerServiceApplication","message":"✅ Settler Service Started Successfully!"}
+{"timestamp":"2025-10-12T23:32:56.511+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.a.c.c.C.[Tomcat].[localhost].[/]","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T23:32:56.511+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.s.web.servlet.DispatcherServlet","message":"Initializing Servlet 'dispatcherServlet'"}
+{"timestamp":"2025-10-12T23:32:56.513+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"o.s.web.servlet.DispatcherServlet","message":"Completed initialization in 2 ms"}
+{"timestamp":"2025-10-12T23:42:50.635+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:42:52.065+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"🆕 Creating group: Goa Trip, owner: 007a70ed-851e-4192-83c6-d527d45d885e"}
+{"timestamp":"2025-10-12T23:42:52.219+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:42:52.358+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    select
+        null,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:42:52.507+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-3","logger":"org.hibernate.SQL","message":"
+    insert 
+    into
+        groups
+        (created_at, currency_code, name, owner_id, id) 
+    values
+        (?, ?, ?, ?, ?)"}
+{"timestamp":"2025-10-12T23:42:52.573+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-3","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"✅ Group created successfully: Goa Trip"}
+{"timestamp":"2025-10-12T23:50:22.802+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-1","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:50:22.898+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-1","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"🆕 Creating group: Home, owner: 007a70ed-851e-4192-83c6-d527d45d885e"}
+{"timestamp":"2025-10-12T23:50:22.910+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-1","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:50:22.923+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-1","logger":"org.hibernate.SQL","message":"
+    select
+        null,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:50:22.938+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-1","logger":"org.hibernate.SQL","message":"
+    insert 
+    into
+        groups
+        (created_at, currency_code, name, owner_id, id) 
+    values
+        (?, ?, ?, ?, ?)"}
+{"timestamp":"2025-10-12T23:50:22.948+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-1","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"✅ Group created successfully: Home"}
+{"timestamp":"2025-10-12T23:50:52.696+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:50:52.705+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"🆕 Creating group: Bike Trip, owner: 007a70ed-851e-4192-83c6-d527d45d885e"}
+{"timestamp":"2025-10-12T23:50:52.705+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:50:52.714+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    select
+        null,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:50:52.717+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-2","logger":"org.hibernate.SQL","message":"
+    insert 
+    into
+        groups
+        (created_at, currency_code, name, owner_id, id) 
+    values
+        (?, ?, ?, ?, ?)"}
+{"timestamp":"2025-10-12T23:50:52.721+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-2","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"✅ Group created successfully: Bike Trip"}
+{"timestamp":"2025-10-12T23:51:05.097+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:51:05.113+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-4","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"🆕 Creating group: Farm House, owner: 007a70ed-851e-4192-83c6-d527d45d885e"}
+{"timestamp":"2025-10-12T23:51:05.119+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:51:05.125+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    select
+        null,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?"}
+{"timestamp":"2025-10-12T23:51:05.125+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-4","logger":"org.hibernate.SQL","message":"
+    insert 
+    into
+        groups
+        (created_at, currency_code, name, owner_id, id) 
+    values
+        (?, ?, ?, ?, ?)"}
+{"timestamp":"2025-10-12T23:51:05.134+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-4","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"✅ Group created successfully: Farm House"}
+{"timestamp":"2025-10-12T23:59:12.505+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-10","logger":"org.hibernate.SQL","message":"
+    select
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.display_name,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?"}
+{"timestamp":"2025-10-12T23:59:12.629+0530","level":"INFO","traceId":"","thread":"http-nio-8080-exec-10","logger":"c.s.d.g.s.impl.GroupServiceImpl","message":"📋 Fetching groups for user: 007a70ed-851e-4192-83c6-d527d45d885e"}
+{"timestamp":"2025-10-12T23:59:12.809+0530","level":"DEBUG","traceId":"","thread":"http-nio-8080-exec-10","logger":"org.hibernate.SQL","message":"
+    select
+        g1_0.id,
+        g1_0.created_at,
+        g1_0.currency_code,
+        g1_0.name,
+        g1_0.owner_id 
+    from
+        groups g1_0 
+    left join
+        users o1_0 
+            on o1_0.id=g1_0.owner_id 
+    where
+        o1_0.id=?"}
+{"timestamp":"2025-10-12T23:59:52.511+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Commencing graceful shutdown. Waiting for active requests to complete"}
+{"timestamp":"2025-10-12T23:59:52.544+0530","level":"INFO","traceId":"","thread":"tomcat-shutdown","logger":"o.s.b.w.e.tomcat.GracefulShutdown","message":"Graceful shutdown complete"}
+{"timestamp":"2025-10-12T23:59:52.975+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"o.s.o.j.LocalContainerEntityManagerFactoryBean","message":"Closing JPA EntityManagerFactory for persistence unit 'default'"}
+{"timestamp":"2025-10-12T23:59:53.001+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown initiated..."}
+{"timestamp":"2025-10-12T23:59:53.015+0530","level":"INFO","traceId":"","thread":"SpringApplicationShutdownHook","logger":"com.zaxxer.hikari.HikariDataSource","message":"HikariPool-1 - Shutdown completed."}
