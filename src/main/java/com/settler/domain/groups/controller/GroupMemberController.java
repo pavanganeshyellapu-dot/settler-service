@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.OffsetDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -90,7 +91,8 @@ public class GroupMemberController {
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<ApiResponse<Object>> listMembers(@PathVariable UUID groupId) {
 
-        List<Object> members = groupMemberService.getMembers(groupId);
+        // ✅ directly fetch from service
+        List<Map<String, Object>> members = groupMemberService.getMembers(groupId);
 
         ApiResponse<Object> response = ApiResponse.builder()
                 .responseInfo(ResponseInfo.builder()
@@ -101,10 +103,11 @@ public class GroupMemberController {
                 .body(ResponseBodyWrapper.builder()
                         .statusCode("200")
                         .statusMessage("Success")
-                        .data(members)
+                        .data(members)  // ✅ flat list (no extra wrapping)
                         .build())
                 .build();
 
         return ResponseEntity.ok(response);
     }
+
 }

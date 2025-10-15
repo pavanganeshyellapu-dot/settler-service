@@ -14,9 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -52,8 +52,9 @@ public class GroupMemberServiceImpl implements IGroupMemberService {
         }
 
         // 🧩 Prevent duplicates
-        boolean exists = groupMemberRepository.findByGroupAndUser(group, user).isPresent();
-        if (exists) throw new BusinessException(ErrorCode.ALREADY_EXISTS, "User already a member");
+        if (groupMemberRepository.findByGroupAndUser(group, user).isPresent()) {
+            throw new BusinessException(ErrorCode.ALREADY_EXISTS, "User already a member");
+        }
 
         // ✅ Add member as MEMBER
         GroupMember newMember = GroupMember.builder()
@@ -99,15 +100,16 @@ public class GroupMemberServiceImpl implements IGroupMemberService {
      */
     @Override
     @Transactional(readOnly = true)
-    public List<Object> getMembers(UUID groupId) {
+    public List<Map<String, Object>> getMembers(UUID groupId) {
         log.info("📋 Fetching members for group {}", groupId);
+
         Group group = groupRepository.findById(groupId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND, "Group not found"));
 
-        return Collections.singletonList(groupMemberRepository.findByGroup(group)
+        return groupMemberRepository.findByGroup(group)
                 .stream()
                 .map(member -> {
-                    var dto = new HashMap<String, Object>();
+                    Map<String, Object> dto = new HashMap<>();
                     dto.put("id", member.getUser().getId());
                     dto.put("email", member.getUser().getEmail());
                     dto.put("displayName", member.getUser().getDisplayName());
@@ -115,6 +117,6 @@ public class GroupMemberServiceImpl implements IGroupMemberService {
                     dto.put("joinedAt", member.getJoinedAt());
                     return dto;
                 })
-                .toList());
+                .toList(); // ✅ return flat list (no extra wrapping)
     }
 }
