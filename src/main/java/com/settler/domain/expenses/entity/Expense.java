@@ -23,17 +23,17 @@ public class Expense {
     @Column(name = "group_id", nullable = false)
     private UUID groupId;
 
-    @Column(name = "paid_by", nullable = false)
-    private UUID paidBy; // ✅ renamed for clarity
-
-    @Column(nullable = false)
-    private BigDecimal amount; // ✅ changed from Double to BigDecimal
-
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private BigDecimal amount;
+
+    @Column(name = "paid_by", nullable = false)
+    private UUID paidBy;
+
     @Column(name = "split_type", nullable = false)
-    private String splitType = "EQUAL";
+    private String splitType; // EQUAL, PERCENTAGE, EXACT
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
@@ -41,9 +41,9 @@ public class Expense {
     @Column(name = "updated_at", nullable = false)
     private OffsetDateTime updatedAt;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "expense_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private List<ExpenseSplit> participants; // ✅ mapped participants
+    // ✅ Add mapping to ExpenseSplit
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ExpenseSplit> participants;
 
     @PrePersist
     public void prePersist() {

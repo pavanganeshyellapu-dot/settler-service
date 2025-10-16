@@ -6,6 +6,8 @@ import java.util.UUID;
 
 public interface IGroupService {
     Group createGroup(String name, String currencyCode, UUID ownerId);
-    Group getGroupById(UUID id);
-    List<Group> getAllGroups();
+    List<Group> getGroupsByUser(UUID userId);
+    Group getGroupById(UUID groupId);
+    void deleteGroup(UUID groupId);
+    List<Group> getGroupsByUserEmail(String email);
 }

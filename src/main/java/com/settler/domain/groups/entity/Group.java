@@ -1,5 +1,6 @@
 package com.settler.domain.groups.entity;
 
+import com.settler.domain.users.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.OffsetDateTime;
@@ -7,38 +8,26 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "groups")
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Group {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(name = "currency_code", nullable = false)
+    @Column(nullable = false)
     private String currencyCode;
 
-    @Column(name = "owner_id", nullable = false)
-    private UUID ownerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
 
-    @Column(name = "simplify_balances", nullable = false)
-    private boolean simplifyBalances = false;
-
-    @Column(name = "allow_member_edits", nullable = false)
-    private boolean allowMemberEdits = false;
-
-    @Column(name = "created_at", nullable = false)
+    @Column(nullable = false)
     private OffsetDateTime createdAt;
-
-    @PrePersist
-    public void prePersist() {
-        if (id == null) id = UUID.randomUUID();
-        if (createdAt == null) createdAt = OffsetDateTime.now();
-    }
 }
