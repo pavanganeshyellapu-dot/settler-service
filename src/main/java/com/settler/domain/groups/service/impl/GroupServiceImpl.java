@@ -34,17 +34,17 @@ public class GroupServiceImpl implements IGroupService {
      */
     @Override
     @Transactional
-    public Group createGroup(String name, String currencyCode, UUID ownerId) {
-        log.info("🆕 Creating group: {}, owner: {}", name, ownerId);
+    public Group createGroup(String name, String currencyCode, String email) {
+        log.info("🆕 Creating group: {}, owner: {}", name, email);
 
-        User owner = userRepository.findById(ownerId)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND, "Owner not found"));
+        User ownerEmail = userRepository.findByEmail(email)
+                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND, "email not found"));
 
         // ✅ Create new group
         Group group = Group.builder()
                 .name(name)
                 .currencyCode(currencyCode)
-                .owner(owner)
+                .owner(ownerEmail)
                 .createdAt(OffsetDateTime.now())
                 .build();
 
@@ -53,14 +53,14 @@ public class GroupServiceImpl implements IGroupService {
         // ✅ Add owner as ADMIN in group_members
         GroupMember adminMember = GroupMember.builder()
                 .group(group)
-                .user(owner)
+                .user(ownerEmail)
                 .role(GroupMember.Role.ADMIN)
                 .joinedAt(OffsetDateTime.now())
                 .build();
 
         groupMemberRepository.save(adminMember);
 
-        log.info("✅ Group '{}' created and {} set as ADMIN", name, owner.getEmail());
+        log.info("✅ Group '{}' created and {} set as ADMIN", name, ownerEmail.getEmail());
         return group;
     }
 
