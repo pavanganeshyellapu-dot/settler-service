@@ -28,12 +28,15 @@ public class GroupController {
     /** 🆕 Create a new group **/
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    public ResponseEntity<ApiResponse<Object>> createGroup(@RequestBody Map<String, Object> req) {
+    public ResponseEntity<ApiResponse<Object>> createGroup(@RequestBody Map<String, Object> req, Authentication authentication) {
         String name = (String) req.get("name");
         String currencyCode = (String) req.get("currencyCode");
-        UUID ownerId = UUID.fromString((String) req.get("ownerId"));
+        String email = authentication.getName(); // Added email from JWT instead using OwnerId for group creation.
+        //UUID ownerId = UUID.fromString((String) req.get("ownerId")); // Not needed as we get email from auth
 
-        Group group = groupService.createGroup(name, currencyCode, ownerId);
+
+
+        Group group = groupService.createGroup(name, currencyCode, email);
         GroupResponse dto = GroupMapper.toDto(group);
 
         ApiResponse<Object> response = ApiResponse.builder()
