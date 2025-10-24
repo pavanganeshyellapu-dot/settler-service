@@ -1,9 +1,13 @@
 package com.settler.domain.expenses.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,43 +21,34 @@ import java.util.UUID;
 public class Expense {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
     @Column(name = "group_id", nullable = false)
     private UUID groupId;
 
-    @Column(nullable = false)
-    private String description;
+    @Column(name = "paid_by", nullable = false)
+    private UUID paidBy;
 
     @Column(nullable = false)
     private BigDecimal amount;
 
-    @Column(name = "paid_by", nullable = false)
-    private UUID paidBy;
+    @Column(length = 255)
+    private String description;
 
-    @Column(name = "split_type", nullable = false)
-    private String splitType; // EQUAL, PERCENTAGE, EXACT
+    @Column(length = 50)
+    private String category; // e.g., food, rent, games, etc.
+
+    @Column(name = "split_type", length = 20)
+    private String splitType; // e.g., equal, percentage, manual
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
-    private OffsetDateTime updatedAt;
-
-    // ✅ Add mapping to ExpenseSplit
+    @JsonIgnore
     @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ExpenseSplit> participants;
+// ensure it's OffsetDateTime not Date
 
-    @PrePersist
-    public void prePersist() {
-        if (id == null) id = UUID.randomUUID();
-        if (createdAt == null) createdAt = OffsetDateTime.now();
-        updatedAt = createdAt;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        updatedAt = OffsetDateTime.now();
-    }
 }

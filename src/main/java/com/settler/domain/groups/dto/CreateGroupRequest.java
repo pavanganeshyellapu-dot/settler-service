@@ -1,14 +1,18 @@
 package com.settler.domain.groups.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.*;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateGroupRequest {
+    @NotBlank(message = "name is required")
     private String name;
+
+    @NotBlank(message = "currencyCode is required")
+    // optional: validate ISO currency with regex or enum
+    private String currencyCode;
 }

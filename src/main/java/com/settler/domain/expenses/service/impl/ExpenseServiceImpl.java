@@ -1,172 +1,149 @@
 package com.settler.domain.expenses.service.impl;
 
 import com.settler.domain.expenses.dto.request.CreateExpenseRequest;
-import com.settler.domain.expenses.dto.request.SplitDetailRequest;
+import com.settler.domain.expenses.dto.response.BalanceResponse;
 import com.settler.domain.expenses.dto.response.ExpenseResponse;
-import com.settler.domain.expenses.dto.response.SplitDetailResponse;
+import com.settler.domain.expenses.dto.response.GroupExpenseSummaryResponse;
 import com.settler.domain.expenses.entity.Expense;
 import com.settler.domain.expenses.entity.ExpenseSplit;
 import com.settler.domain.expenses.repo.ExpenseRepository;
 import com.settler.domain.expenses.repo.ExpenseSplitRepository;
-import com.settler.exceptions.BusinessException;
-import com.settler.exceptions.ErrorCode;
+import com.settler.domain.expenses.service.IExpenseService;
+import com.settler.readmodel.BalanceCalculator;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
 @Slf4j
-public class ExpenseServiceImpl implements com.settler.domain.expenses.service.IExpenseService {
+@Transactional
+public class ExpenseServiceImpl implements IExpenseService {
 
-    private final ExpenseRepository expenseRepo;
-    private final ExpenseSplitRepository splitRepo;
+    private final ExpenseRepository expenseRepository;
+    private final ExpenseSplitRepository expenseSplitRepository;
 
-    public ExpenseServiceImpl(ExpenseRepository expenseRepo, ExpenseSplitRepository splitRepo) {
-        this.expenseRepo = expenseRepo;
-        this.splitRepo = splitRepo;
+    public ExpenseServiceImpl(ExpenseRepository expenseRepository,
+                              ExpenseSplitRepository expenseSplitRepository) {
+        this.expenseRepository = expenseRepository;
+        this.expenseSplitRepository = expenseSplitRepository;
     }
 
     @Override
-    public ExpenseResponse createExpense(CreateExpenseRequest request) {
-        log.info("Creating expense for group {}", request.getGroupId());
+    public ExpenseResponse createExpense(CreateExpenseRequest request, String correlationId, String sessionId) {
+        log.info("[{}] Creating new expense in group: {}, sessionId={}", correlationId, request.getGroupId(), sessionId);
 
-        if (request.getAmount() == null || request.getAmount() <= 0)
-            throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Invalid expense amount");
+        Expense expense = new Expense();
+        expense.setGroupId(request.getGroupId());
+        expense.setPaidBy(request.getPaidBy());
+        expense.setAmount(request.getAmount());
+        expense.setDescription(request.getDescription());
+        expense.setCategory(request.getCategory());
+        expense.setSplitType(request.getSplitType());
+        expense.setCreatedAt(OffsetDateTime.now());
 
-        // Step 1: Create Expense entity
-        Expense expense = Expense.builder()
-                .groupId(request.getGroupId())
-                .description(request.getDescription())
-                .amount(BigDecimal.valueOf(request.getAmount()))
-                .paidBy(request.getPaidBy())
-                .splitType(request.getSplitType())
-                .createdAt(OffsetDateTime.now())
-                .updatedAt(OffsetDateTime.now())
-                .build();
+        expense = expenseRepository.save(expense);
 
-        expense = expenseRepo.save(expense);
-        log.debug("Expense created with ID {}", expense.getId());
+        // ✅ Save splits if provided
+        if (request.getSplits() != null && !request.getSplits().isEmpty()) {
+            Expense finalExpense = expense;
+            List<ExpenseSplit> splits = request.getSplits().stream()
+                    .map(s -> {
+                        ExpenseSplit split = new ExpenseSplit();
+                        split.setExpense(finalExpense); // ✅ use entity relation
+                        split.setUserId(s.getUserId());
+                        split.setAmount(s.getAmount());
+                        split.setPercentage(s.getPercentage());
+                        split.setCreatedAt(OffsetDateTime.now());
+                        return split;
+                    }).collect(Collectors.toList());
 
-        // Step 2: Create splits
-        List<ExpenseSplit> splits = buildSplits(expense, request);
-        splitRepo.saveAll(splits);
-
-        // Step 3: Return response
-        return mapToResponse(expense, splits);
-    }
-
-    @Override
-    public ExpenseResponse getExpenseById(UUID id) {
-        Expense expense = expenseRepo.findById(id)
-                .orElseThrow(() -> new BusinessException(ErrorCode.NOT_FOUND, "Expense not found"));
-
-        List<ExpenseSplit> splits = splitRepo.findByExpenseId(id);
-        return mapToResponse(expense, splits);
-    }
-
-    @Override
-    public List<ExpenseResponse> getExpensesByGroup(UUID groupId) {
-        return expenseRepo.findByGroupId(groupId).stream()
-                .map(exp -> mapToResponse(exp, splitRepo.findByExpenseId(exp.getId())))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<ExpenseResponse> getExpensesByUser(UUID userId) {
-        return expenseRepo.findByPaidBy(userId).stream()
-                .map(exp -> mapToResponse(exp, splitRepo.findByExpenseId(exp.getId())))
-                .collect(Collectors.toList());
-    }
-
-    // --- Helper methods ---
-
-    private List<ExpenseSplit> buildSplits(Expense expense, CreateExpenseRequest request) {
-        List<SplitDetailRequest> participants = request.getParticipants();
-
-        if (participants == null || participants.isEmpty()) {
-            throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Expense must have at least one participant");
+            expenseSplitRepository.saveAll(splits);
         }
 
-        double totalSplit = 0;
-        List<ExpenseSplit> splits = new ArrayList<>();
-
-        switch (request.getSplitType().toUpperCase()) {
-            case "EQUAL" -> {
-                double equalShare = request.getAmount() / participants.size();
-                for (SplitDetailRequest p : participants) {
-                    splits.add(ExpenseSplit.builder()
-                            .expense(expense)
-                            .userId(p.getUserId())
-                            .amount(BigDecimal.valueOf(equalShare)) // optional precision fix
-                            .createdAt(OffsetDateTime.now())
-                            .build());
-                    ;
-                }
-            }
-            case "PERCENTAGE" -> {
-                for (SplitDetailRequest p : participants) {
-                    if (p.getPercentage() == null)
-                        throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Percentage missing for user");
-                    double amount = request.getAmount() * (p.getPercentage() / 100);
-                    totalSplit += amount;
-                    splits.add(ExpenseSplit.builder()
-                            .expense(expense)
-                            .userId(p.getUserId())
-                            .amount(BigDecimal.valueOf(amount))
-                            .percentage(p.getPercentage())
-                            .createdAt(OffsetDateTime.now())
-                            .build());
-                }
-                if (Math.abs(totalSplit - request.getAmount()) > 0.1)
-                    throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Percentages must sum to 100%");
-            }
-            case "EXACT" -> {
-                for (SplitDetailRequest p : participants) {
-                    if (p.getAmount() == null)
-                        throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Amount missing for user");
-                    totalSplit += p.getAmount();
-                    splits.add(ExpenseSplit.builder()
-                            .expense(expense)
-                            .userId(p.getUserId())
-                            .amount(BigDecimal.valueOf(p.getAmount()))
-                            .createdAt(OffsetDateTime.now())
-                            .build());
-                }
-                if (Math.abs(totalSplit - request.getAmount()) > 0.1)
-                    throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Split amounts must sum to total");
-            }
-            default -> throw new BusinessException(ErrorCode.VALIDATION_FAILED, "Invalid split type");
-        }
-
-        log.info("Created {} splits for expense {}", splits.size(), expense.getId());
-        return splits;
+        log.info("[{}] Expense created successfully with ID {}", correlationId, expense.getId());
+        return ExpenseResponse.fromEntity(expense);
     }
 
-    private ExpenseResponse mapToResponse(Expense expense, List<ExpenseSplit> splits) {
-        List<SplitDetailResponse> splitResponses = splits.stream()
-                .map(s -> SplitDetailResponse.builder()
-                        .userId(s.getUserId())
-                        .amount(s.getAmount())
-                        .percentage(s.getPercentage())
-                        .build())
-                .toList();
+    @Override
+    @Transactional(readOnly = true)
+    public ExpenseResponse getExpenseById(UUID id, String correlationId) {
+        log.info("[{}] Fetching expense with ID {}", correlationId, id);
 
-        return ExpenseResponse.builder()
-                .id(expense.getId())
-                .groupId(expense.getGroupId())
-                .description(expense.getDescription())
-                .amount(expense.getAmount().doubleValue())
-                .paidBy(expense.getPaidBy())
-                .splitType(expense.getSplitType())
-                .createdAt(expense.getCreatedAt())
-                .updatedAt(expense.getUpdatedAt())
-                .participants(splitResponses)
-                .build();
+        Expense expense = expenseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Expense not found with ID: " + id));
+
+        return ExpenseResponse.fromEntity(expense);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public GroupExpenseSummaryResponse getGroupExpenseSummary(UUID groupId, String correlationId) {
+        log.info("[{}] Fetching expenses for group {}", correlationId, groupId);
+
+        List<Expense> expenses = expenseRepository.findByGroupId(groupId);
+        if (expenses.isEmpty()) {
+            return new GroupExpenseSummaryResponse(Collections.emptyList(), Collections.emptyList(), 0.0, OffsetDateTime.now().toLocalDateTime());
+        }
+
+        Map<UUID, BigDecimal> balances = BalanceCalculator.calculateNetBalances(expenses);
+
+        List<ExpenseResponse> expenseResponses = expenses.stream()
+                .map(ExpenseResponse::fromEntity)
+                .collect(Collectors.toList());
+
+        List<BalanceResponse> balanceResponses = balances.entrySet().stream()
+                .map(e -> new BalanceResponse(e.getKey(), e.getValue()))
+                .collect(Collectors.toList());
+
+        double totalSpent = expenses.stream()
+                .map(e -> e.getAmount().doubleValue())
+                .reduce(0.0, Double::sum);
+
+        return new GroupExpenseSummaryResponse(expenseResponses, balanceResponses, totalSpent, OffsetDateTime.now().toLocalDateTime());
+    }
+
+    @Override
+    public byte[] exportGroupExpensesToCSV(UUID groupId, String correlationId) {
+        log.info("[{}] Exporting expenses to CSV for group {}", correlationId, groupId);
+
+        List<Expense> expenses = expenseRepository.findByGroupId(groupId);
+
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream();
+             OutputStreamWriter writer = new OutputStreamWriter(out);
+             CSVPrinter csvPrinter = new CSVPrinter(writer,
+                     CSVFormat.DEFAULT.builder()
+                             .setHeader("Expense ID", "Description", "Category", "Paid By", "Amount", "Created At")
+                             .build())) {
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            for (Expense expense : expenses) {
+                csvPrinter.printRecord(
+                        expense.getId(),
+                        expense.getDescription(),
+                        expense.getCategory(),
+                        expense.getPaidBy(),
+                        expense.getAmount(),
+                        expense.getCreatedAt() != null ? expense.getCreatedAt().format(formatter) : ""
+                );
+            }
+
+            csvPrinter.flush();
+            log.info("[{}] CSV export completed for group {}", correlationId, groupId);
+            return out.toByteArray();
+        } catch (Exception e) {
+            log.error("[{}] Error exporting group {} expenses to CSV: {}", correlationId, groupId, e.getMessage(), e);
+            throw new RuntimeException("Error generating CSV", e);
+        }
     }
 }

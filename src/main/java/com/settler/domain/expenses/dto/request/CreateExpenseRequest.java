@@ -1,23 +1,22 @@
 package com.settler.domain.expenses.dto.request;
 
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Incoming request to create a new expense.
- */
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class CreateExpenseRequest {
-
-    private UUID groupId;             // Group in which expense is added
-    private UUID paidBy;              // User who paid
-    private String description;       // Expense name (e.g. "Dinner")
-    private Double amount;            // Total amount
-    private String splitType;         // EQUAL, PERCENTAGE, EXACT
-
-    private List<SplitDetailRequest> participants; // Participants’ shares
+    private UUID groupId;
+    private UUID paidBy;
+    private BigDecimal amount;
+    private String description;
+    private String category; // optional
+    private String splitType; // equal, percentage, custom
+    private List<ExpenseSplitRequest> splits;
 }

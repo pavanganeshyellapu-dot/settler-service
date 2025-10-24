@@ -2,16 +2,29 @@ package com.settler.domain.expenses.service;
 
 import com.settler.domain.expenses.dto.request.CreateExpenseRequest;
 import com.settler.domain.expenses.dto.response.ExpenseResponse;
-import java.util.List;
+import com.settler.domain.expenses.dto.response.GroupExpenseSummaryResponse;
+
 import java.util.UUID;
 
 public interface IExpenseService {
 
-    ExpenseResponse createExpense(CreateExpenseRequest request);
+    /**
+     * Create a new expense
+     */
+    ExpenseResponse createExpense(CreateExpenseRequest request, String correlationId, String sessionId);
 
-    ExpenseResponse getExpenseById(UUID id);
+    /**
+     * Get expense by ID
+     */
+    ExpenseResponse getExpenseById(UUID id, String correlationId);
 
-    List<ExpenseResponse> getExpensesByGroup(UUID groupId);
+    /**
+     * Get all expenses and balances for a group
+     */
+    GroupExpenseSummaryResponse getGroupExpenseSummary(UUID groupId, String correlationId);
 
-    List<ExpenseResponse> getExpensesByUser(UUID userId);
+    /**
+     * Export group expenses to CSV
+     */
+    byte[] exportGroupExpensesToCSV(UUID groupId, String correlationId);
 }

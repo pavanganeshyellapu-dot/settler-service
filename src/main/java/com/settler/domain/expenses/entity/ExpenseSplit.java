@@ -2,6 +2,8 @@ package com.settler.domain.expenses.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -16,7 +18,8 @@ import java.util.UUID;
 public class ExpenseSplit {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,18 +29,13 @@ public class ExpenseSplit {
     @Column(name = "user_id", nullable = false)
     private UUID userId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
-    @Column
-    private Double percentage;
+    @Column(precision = 5, scale = 2)
+    private BigDecimal percentage;
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
 
-    @PrePersist
-    public void prePersist() {
-        if (id == null) id = UUID.randomUUID();
-        if (createdAt == null) createdAt = OffsetDateTime.now();
-    }
 }
