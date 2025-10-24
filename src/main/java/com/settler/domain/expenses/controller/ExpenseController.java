@@ -2,6 +2,7 @@ package com.settler.domain.expenses.controller;
 
 import com.settler.domain.expenses.dto.request.CreateExpenseRequest;
 import com.settler.domain.expenses.dto.response.ExpenseResponse;
+import com.settler.domain.expenses.dto.response.GroupExpenseSummaryResponse;
 import com.settler.domain.expenses.service.IExpenseService;
 import com.settler.dto.common.*;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -27,10 +27,15 @@ public class ExpenseController {
      * ✅ Create new expense
      */
     @PostMapping
-    public ResponseEntity<ApiResponse<Object>> createExpense(@RequestBody CreateExpenseRequest request) {
-        log.info("Received request to create expense for group {}", request.getGroupId());
+    public ResponseEntity<ApiResponse<Object>> createExpense(
+            @RequestBody CreateExpenseRequest request,
+            @RequestHeader(value = "Correlation-Id", required = false) String correlationId,
+            @RequestHeader(value = "Session-Id", required = false) String sessionId) {
 
-        ExpenseResponse created = expenseService.createExpense(request);
+        if (correlationId == null) correlationId = UUID.randomUUID().toString();
+        log.info("[{}] Received request to create expense for group {}", correlationId, request.getGroupId());
+
+        ExpenseResponse created = expenseService.createExpense(request, correlationId, sessionId);
 
         ApiResponse<Object> response = ApiResponse.<Object>builder()
                 .responseInfo(ResponseInfo.builder()
@@ -52,9 +57,11 @@ public class ExpenseController {
      * ✅ Get expense by ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Object>> getExpense(@PathVariable UUID id) {
-        log.info("Fetching expense with ID {}", id);
-        ExpenseResponse expense = expenseService.getExpenseById(id);
+    public ResponseEntity<ApiResponse<Object>> getExpense(@PathVariable UUID id,
+                                                          @RequestHeader(value = "Correlation-Id", required = false) String correlationId) {
+
+        log.info("[{}] Fetching expense with ID {}", correlationId, id);
+        ExpenseResponse expense = expenseService.getExpenseById(id, correlationId);
 
         ApiResponse<Object> response = ApiResponse.<Object>builder()
                 .responseInfo(ResponseInfo.builder()
@@ -73,23 +80,28 @@ public class ExpenseController {
     }
 
     /**
-     * ✅ Get all expenses for a group
+     * ✅ Get all expenses + balances for a group
      */
     @GetMapping("/group/{groupId}")
-    public ResponseEntity<ApiResponse<Object>> getExpensesByGroup(@PathVariable UUID groupId) {
-        log.info("Fetching all expenses for group {}", groupId);
-        List<ExpenseResponse> expenses = expenseService.getExpensesByGroup(groupId);
+    public ResponseEntity<ApiResponse<Object>> getExpensesByGroup(
+            @PathVariable UUID groupId,
+            @RequestHeader(value = "Correlation-Id", required = false) String correlationId) {
+
+        if (correlationId == null) correlationId = UUID.randomUUID().toString();
+        log.info("[{}] Fetching all expenses and balances for group {}", correlationId, groupId);
+
+        GroupExpenseSummaryResponse summary = expenseService.getGroupExpenseSummary(groupId, correlationId);
 
         ApiResponse<Object> response = ApiResponse.<Object>builder()
                 .responseInfo(ResponseInfo.builder()
                         .timestamp(OffsetDateTime.now())
                         .responseCode("00")
-                        .responseMessage("Fetched all group expenses")
+                        .responseMessage("Fetched group expenses and balances")
                         .build())
                 .body(ResponseBodyWrapper.<Object>builder()
                         .statusCode("200")
                         .statusMessage("OK")
-                        .data(expenses)
+                        .data(summary)
                         .build())
                 .build();
 
@@ -97,26 +109,19 @@ public class ExpenseController {
     }
 
     /**
-     * ✅ Get all expenses paid by a specific user
+     * ✅ Export group transactions to CSV
      */
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<ApiResponse<Object>> getExpensesByUser(@PathVariable UUID userId) {
-        log.info("Fetching expenses paid by user {}", userId);
-        List<ExpenseResponse> expenses = expenseService.getExpensesByUser(userId);
+    @GetMapping("/group/{groupId}/export")
+    public ResponseEntity<byte[]> exportGroupExpensesToCSV(@PathVariable UUID groupId,
+                                                           @RequestHeader(value = "Correlation-Id", required = false) String correlationId) {
+        if (correlationId == null) correlationId = UUID.randomUUID().toString();
+        log.info("[{}] Exporting group {} expenses to CSV", correlationId, groupId);
 
-        ApiResponse<Object> response = ApiResponse.<Object>builder()
-                .responseInfo(ResponseInfo.builder()
-                        .timestamp(OffsetDateTime.now())
-                        .responseCode("00")
-                        .responseMessage("Fetched user expenses")
-                        .build())
-                .body(ResponseBodyWrapper.<Object>builder()
-                        .statusCode("200")
-                        .statusMessage("OK")
-                        .data(expenses)
-                        .build())
-                .build();
+        byte[] csvData = expenseService.exportGroupExpensesToCSV(groupId, correlationId);
 
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=group-" + groupId + "-expenses.csv")
+                .header("Content-Type", "text/csv")
+                .body(csvData);
     }
 }
