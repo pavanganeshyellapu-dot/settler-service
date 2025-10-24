@@ -1,3 +1,8 @@
+-- =========================================================
+-- V006__create_group_members.sql
+-- Purpose: Create the 'create_group_members' table for user shares
+-- =========================================================
+
 CREATE TABLE IF NOT EXISTS group_members (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     group_id UUID NOT NULL,
