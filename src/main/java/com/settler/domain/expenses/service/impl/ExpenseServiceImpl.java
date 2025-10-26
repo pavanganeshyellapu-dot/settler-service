@@ -9,6 +9,7 @@ import com.settler.domain.expenses.entity.ExpenseSplit;
 import com.settler.domain.expenses.repo.ExpenseRepository;
 import com.settler.domain.expenses.repo.ExpenseSplitRepository;
 import com.settler.domain.expenses.service.IExpenseService;
+import com.settler.domain.groupbalances.service.IGroupBalanceService;
 import com.settler.readmodel.BalanceCalculator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
@@ -31,43 +32,62 @@ public class ExpenseServiceImpl implements IExpenseService {
 
     private final ExpenseRepository expenseRepository;
     private final ExpenseSplitRepository expenseSplitRepository;
+    private final IGroupBalanceService groupBalanceService;
 
     public ExpenseServiceImpl(ExpenseRepository expenseRepository,
-                              ExpenseSplitRepository expenseSplitRepository) {
+                              ExpenseSplitRepository expenseSplitRepository,
+                              IGroupBalanceService groupBalanceService) {
         this.expenseRepository = expenseRepository;
         this.expenseSplitRepository = expenseSplitRepository;
+        this.groupBalanceService = groupBalanceService;
     }
 
     @Override
     public ExpenseResponse createExpense(CreateExpenseRequest request, String correlationId, String sessionId) {
         log.info("[{}] Creating new expense in group: {}, sessionId={}", correlationId, request.getGroupId(), sessionId);
 
-        Expense expense = new Expense();
-        expense.setGroupId(request.getGroupId());
-        expense.setPaidBy(request.getPaidBy());
-        expense.setAmount(request.getAmount());
-        expense.setDescription(request.getDescription());
-        expense.setCategory(request.getCategory());
-        expense.setSplitType(request.getSplitType());
-        expense.setCreatedAt(OffsetDateTime.now());
+        // Step 1: Build and save expense
+        Expense expense = Expense.builder()
+                .groupId(request.getGroupId())
+                .paidBy(request.getPaidBy())
+                .amount(request.getAmount())
+                .description(request.getDescription())
+                .category(request.getCategory())
+                .splitType(request.getSplitType())
+                .createdAt(OffsetDateTime.now())
+                .build();
 
-        expense = expenseRepository.save(expense);
+        expense = expenseRepository.saveAndFlush(expense); // ensures ID generation
 
-        // ✅ Save splits if provided
+        // Step 2: Create splits (if provided)
         if (request.getSplits() != null && !request.getSplits().isEmpty()) {
+
             Expense finalExpense = expense;
             List<ExpenseSplit> splits = request.getSplits().stream()
-                    .map(s -> {
-                        ExpenseSplit split = new ExpenseSplit();
-                        split.setExpense(finalExpense); // ✅ use entity relation
-                        split.setUserId(s.getUserId());
-                        split.setAmount(s.getAmount());
-                        split.setPercentage(s.getPercentage());
-                        split.setCreatedAt(OffsetDateTime.now());
-                        return split;
-                    }).collect(Collectors.toList());
+                    .map(s -> ExpenseSplit.builder()
+                            .expense(finalExpense)
+                            .userId(s.getUserId())
+                            .amount(s.getAmount())
+                            .percentage(s.getPercentage())
+                            .createdAt(OffsetDateTime.now())
+                            .build())
+                    .collect(Collectors.toList());
 
-            expenseSplitRepository.saveAll(splits);
+            expenseSplitRepository.saveAllAndFlush(splits); // persist splits
+            expense.setParticipants(splits);
+
+            // After saving expense and splits
+            Map<UUID, BigDecimal> balances = BalanceCalculator.calculateNetBalances(
+                    expenseRepository.findByGroupId(expense.getGroupId())
+            );
+
+            groupBalanceService.recalculateBalances(expense.getGroupId(), correlationId);
+
+
+
+            log.info("[{}] Inserted {} splits for expense {}", correlationId, splits.size(), expense.getId());
+        } else {
+            log.warn("[{}] No splits provided for expense {}", correlationId, expense.getId());
         }
 
         log.info("[{}] Expense created successfully with ID {}", correlationId, expense.getId());

@@ -1,4 +1,4 @@
-package com.settler.domain.expenses.entity;
+package com.settler.domain.groupbalances.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,34 +9,28 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "expense_splits")
+@Table(name = "group_balances")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ExpenseSplit {
+public class GroupBalance {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
+    @Column(name = "group_id", nullable = false)
+    private UUID groupId;
+
     @Column(name = "user_id", nullable = false)
     private UUID userId;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal amount;
+    private BigDecimal balance; // Positive = user is owed, Negative = user owes
 
-    @Column(precision = 5, scale = 2)
-    private BigDecimal percentage;
-
-    @Column(name = "created_at", nullable = false)
-    private OffsetDateTime createdAt;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "expense_id", nullable = false)
-    private Expense expense;
-
-
+    @Column(name = "updated_at", nullable = false)
+    private OffsetDateTime updatedAt;
 }
