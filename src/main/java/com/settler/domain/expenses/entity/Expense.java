@@ -47,8 +47,13 @@ public class Expense {
     private OffsetDateTime createdAt;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ExpenseSplit> participants;
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ExpenseSplit> participants = new ArrayList<>();
+
+
+
+
+
 // ensure it's OffsetDateTime not Date
 
 }
