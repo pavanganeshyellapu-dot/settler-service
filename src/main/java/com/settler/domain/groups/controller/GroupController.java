@@ -1,5 +1,6 @@
 package com.settler.domain.groups.controller;
 
+import com.settler.domain.groups.dto.CreateGroupRequest;
 import com.settler.domain.groups.entity.Group;
 import com.settler.domain.groups.service.IGroupService;
 import com.settler.domain.groups.mapper.GroupMapper;
@@ -28,9 +29,9 @@ public class GroupController {
     /** 🆕 Create a new group **/
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    public ResponseEntity<ApiResponse<Object>> createGroup(@RequestBody Map<String, Object> req, Authentication authentication) {
-        String name = (String) req.get("name");
-        String currencyCode = (String) req.get("currencyCode");
+    public ResponseEntity<ApiResponse<Object>> createGroup(@RequestBody CreateGroupRequest req, Authentication authentication) {
+        String name = req.getName();
+        String currencyCode = req.getCurrencyCode();
         String email = authentication.getName(); // Added email from JWT instead using OwnerId for group creation.
         //UUID ownerId = UUID.fromString((String) req.get("ownerId")); // Not needed as we get email from auth
 
