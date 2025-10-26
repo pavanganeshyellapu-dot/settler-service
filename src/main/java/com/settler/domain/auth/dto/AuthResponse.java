@@ -14,5 +14,7 @@ public class AuthResponse {
     private String displayName;
     private String role;
     private String user;
-    private UUID id;
+    private String id;
+
+
 }

@@ -8,6 +8,8 @@ import com.settler.domain.auth.service.IAuthService;
 import com.settler.domain.users.entity.User;
 import com.settler.domain.users.repo.UserRepository;
 import com.settler.domain.users.enums.UserRole;
+import com.settler.exceptions.BusinessException;
+import com.settler.exceptions.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,10 +33,14 @@ public class AuthServiceImpl implements IAuthService {
      * If user already exists, throw exception.
      */
     @Override
-    public AuthResponse register(RegisterRequest request) {
+    public AuthResponse register(RegisterRequest request ) {
         Optional<User> existing = userRepository.findByEmail(request.getEmail());
         if (existing.isPresent()) {
-            throw new RuntimeException("User already exists with email: " + request.getEmail());
+            //throw new RuntimeException("User already exists with email: " + request.getEmail());   This was removed due to improper response (500 - INTERNAL ERROR) during a existing user tried to register.
+            return AuthResponse.builder()
+                    .user("Existing User") //This will return 200 with OK with proper error message.
+                    .build();
+
         }
 
         // Build user entity
@@ -60,7 +66,8 @@ public class AuthServiceImpl implements IAuthService {
                 .email(user.getEmail())
                 .displayName(user.getDisplayName())
                 .role(user.getRole().name())
-                .user(String.valueOf(user.getId()))
+                .id(String.valueOf(user.getId()))
+                .user("Valid User")
                 .build();
     }
 
@@ -88,7 +95,8 @@ public class AuthServiceImpl implements IAuthService {
                 .email(user.getEmail())
                 .displayName(user.getDisplayName())
                 .role(user.getRole().name())
-                .user(String.valueOf(user.getId()))
+                .id(String.valueOf(user.getId()))
+                .user("Valid User")
                 .build();
     }
 }
