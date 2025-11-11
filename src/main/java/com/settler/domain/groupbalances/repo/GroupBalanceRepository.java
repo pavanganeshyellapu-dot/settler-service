@@ -10,4 +10,5 @@ import java.util.*;
 public interface GroupBalanceRepository extends JpaRepository<GroupBalance, UUID> {
     List<GroupBalance> findByGroupId(UUID groupId);
     Optional<GroupBalance> findByGroupIdAndUserId(UUID groupId, UUID userId);
+
 }
