@@ -2,12 +2,12 @@ package com.settler.domain.settlements.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-/**
- * Represents a payment or settlement transaction between users.
- */
 @Entity
 @Table(name = "settlements")
 @Getter
@@ -18,45 +18,28 @@ import java.util.UUID;
 public class Settlement {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
     @Column(name = "group_id", nullable = false)
     private UUID groupId;
 
     @Column(name = "from_user_id", nullable = false)
-    private UUID fromUserId;  // who paid
+    private UUID fromUserId;
 
     @Column(name = "to_user_id", nullable = false)
-    private UUID toUserId;    // who received
+    private UUID toUserId;
 
-    @Column(nullable = false)
-    private Double amount;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal amount;
 
-    @Column(name = "mode_of_payment", nullable = false)
-    private String modeOfPayment; // CASH, UPI, PHONEPE, GPAY, PAYTM
-
-    // FIX: Added @Builder.Default to ensure 'false' is used as the default
-    // when using the Lombok builder.
+    @Column(name = "settled_at", nullable = false)
     @Builder.Default
+    private OffsetDateTime settledAt = OffsetDateTime.now();
+
+    // 🟢 This fixes the getConfirmed() error
     @Column(nullable = false)
-    private boolean confirmed = false; // true after both users verify
-
-    @Column(name = "created_at", nullable = false)
-    private OffsetDateTime createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    private OffsetDateTime updatedAt;
-
-    @PrePersist
-    public void prePersist() {
-        if (id == null) id = UUID.randomUUID();
-        if (createdAt == null) createdAt = OffsetDateTime.now();
-        updatedAt = createdAt;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        updatedAt = OffsetDateTime.now();
-    }
+    @Builder.Default
+    private Boolean confirmed = true;
 }
