@@ -11,13 +11,25 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class SettlementResponse {
+
     private UUID id;
+
     private UUID groupId;
+
     private UUID fromUserId;
     private String fromUserName;
+
     private UUID toUserId;
     private String toUserName;
+
     private BigDecimal amount;
-    private OffsetDateTime settledAt;
+    private String notes;
+
     private Boolean confirmed;
+
+    private OffsetDateTime createdAt;
+    private OffsetDateTime settledAt;
+
+    private BigDecimal remainingBetweenUsers;
+    private Boolean fullySettled;
 }

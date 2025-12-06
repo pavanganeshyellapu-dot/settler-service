@@ -1,7 +1,6 @@
 package com.settler.domain.groupbalances.dto.response;
 
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -10,10 +9,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SettlementResponse {
+public class GroupSettlementSuggestionResponse {
     private UUID fromUserId;
-    private String fromUserName;  // optional for UI
+    private String fromUserName;
     private UUID toUserId;
-    private String toUserName;    // optional for UI
+    private String toUserName;
     private BigDecimal amount;
 }

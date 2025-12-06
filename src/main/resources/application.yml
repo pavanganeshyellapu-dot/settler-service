@@ -1,8 +1,12 @@
 spring:
+  profiles:
+    active: dev
+
   data:
     redis:
       host: localhost
       port: 6379
+
   datasource:
     url: jdbc:postgresql://localhost:5432/settler
     username: settler
@@ -15,13 +19,11 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none  # Flyway manages schema, don't auto-create
+      ddl-auto: none
     properties:
       hibernate:
-        org:
-          hibernate:
-            dialect:
-              PostgreSQLDialect:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         jdbc.time_zone: UTC
         format_sql: true
         show_sql: true
@@ -39,8 +41,6 @@ spring:
 
 server:
   port: 8080
-  error:
-    include-message: always
 
 logging:
   level:
@@ -51,8 +51,10 @@ logging:
 
 jwt:
   secret: "SETTLER_SUPER_SECRET_KEY_1234567890"
-  expiration-ms: 7776000000  # 24 hours
+  expiration-ms: 7776000000
+  refresh-expiry-days: 30 # correct comment here -> 90 days
+otp:
+  expiry-minutes: 5        # how long OTP is valid
 
 lifecycle:
   timeout-per-shutdown-phase: 10s
-

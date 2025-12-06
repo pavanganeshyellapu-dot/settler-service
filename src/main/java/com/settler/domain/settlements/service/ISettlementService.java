@@ -8,7 +8,12 @@ import java.util.UUID;
 
 public interface ISettlementService {
 
-    SettlementResponse confirmSettlement(SettlementRequest request, String correlationId);
+    /**
+     * Records a payment between two users inside a group.
+     * The settlement is treated as completed immediately,
+     * and balances are recalculated to compute remaining amount.
+     */
+    SettlementResponse createSettlement(SettlementRequest request, String correlationId);
 
     List<SettlementResponse> getSettlementsByGroup(UUID groupId);
 
