@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>com.settler</groupId>
-    <artifactId>settler-service</artifactId>
+    <artifactId>metero-payments-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>settler-service</name>
     <description>Settler expense split backend</description>

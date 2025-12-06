@@ -14,4 +14,5 @@ public class SettlementRequest {
     private UUID fromUserId;
     private UUID toUserId;
     private BigDecimal amount;
+    private String notes;
 }

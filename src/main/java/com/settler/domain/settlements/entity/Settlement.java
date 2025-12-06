@@ -34,12 +34,19 @@ public class Settlement {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
-    @Column(name = "settled_at", nullable = false)
-    @Builder.Default
-    private OffsetDateTime settledAt = OffsetDateTime.now();
+    private String notes;
 
-    // 🟢 This fixes the getConfirmed() error
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private OffsetDateTime updatedAt;
+
+
+    @Column(name = "settled_at")
+    private OffsetDateTime settledAt;
+
     @Column(nullable = false)
     @Builder.Default
-    private Boolean confirmed = true;
+    private Boolean confirmed = false;
 }

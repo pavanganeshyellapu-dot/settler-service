@@ -22,30 +22,29 @@ public class SettlementController {
     private final ISettlementService settlementService;
 
     /**
-     * ✅ Create and immediately confirm a new settlement.
-     * This records the transaction and updates group balances.
+     * Create a settlement (cash payment) and settle immediately
      */
-    @PostMapping("/confirm")
-    public ResponseEntity<ApiResponse<Object>> confirmSettlement(
+    @PostMapping
+    public ResponseEntity<ApiResponse<Object>> createSettlement(
             @RequestBody SettlementRequest request,
             @RequestHeader(value = "Correlation-Id", required = false) String correlationId) {
 
         if (correlationId == null)
             correlationId = UUID.randomUUID().toString();
 
-        log.info("[{}] Confirming settlement request: {}", correlationId, request);
+        log.info("[{}] Creating settlement: {}", correlationId, request);
 
-        SettlementResponse saved = settlementService.confirmSettlement(request, correlationId);
+        SettlementResponse saved = settlementService.createSettlement(request, correlationId);
 
         ApiResponse<Object> response = ApiResponse.<Object>builder()
                 .responseInfo(ResponseInfo.builder()
                         .timestamp(OffsetDateTime.now())
                         .responseCode("00")
-                        .responseMessage("Settlement confirmed successfully")
+                        .responseMessage("Settlement created successfully")
                         .build())
                 .body(ResponseBodyWrapper.<Object>builder()
                         .statusCode("200")
-                        .statusMessage("Success")
+                        .statusMessage("SUCCESS")
                         .data(saved)
                         .build())
                 .build();
@@ -54,7 +53,7 @@ public class SettlementController {
     }
 
     /**
-     * ✅ Fetch all settlements for a group
+     * Get all settlements for a group
      */
     @GetMapping("/group/{groupId}")
     public ResponseEntity<ApiResponse<Object>> getGroupSettlements(@PathVariable UUID groupId) {
@@ -68,7 +67,7 @@ public class SettlementController {
                         .build())
                 .body(ResponseBodyWrapper.<Object>builder()
                         .statusCode("200")
-                        .statusMessage("Success")
+                        .statusMessage("SUCCESS")
                         .data(list)
                         .build())
                 .build();
@@ -77,7 +76,7 @@ public class SettlementController {
     }
 
     /**
-     * ✅ Fetch all settlements involving a specific user (as payer or receiver)
+     * Get all settlements involving a user
      */
     @GetMapping("/user/{userId}")
     public ResponseEntity<ApiResponse<Object>> getUserSettlements(@PathVariable UUID userId) {
@@ -91,7 +90,7 @@ public class SettlementController {
                         .build())
                 .body(ResponseBodyWrapper.<Object>builder()
                         .statusCode("200")
-                        .statusMessage("Success")
+                        .statusMessage("SUCCESS")
                         .data(list)
                         .build())
                 .build();

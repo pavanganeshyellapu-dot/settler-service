@@ -1,44 +1,46 @@
 package com.settler.domain.auth.controller;
 
 import com.settler.domain.auth.dto.*;
-import com.settler.domain.auth.service.IAuthService;
-import com.settler.domain.auth.service.IGoogleAuthService;
+import com.settler.domain.auth.service.IOtpAuthService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    private final IAuthService authService;
-    private final IGoogleAuthService googleAuthService;
+    private final IOtpAuthService otpAuthService;
 
-    public AuthController(IAuthService authService, IGoogleAuthService googleAuthService) {
-        this.authService = authService;
-        this.googleAuthService = googleAuthService;
+    @PostMapping("/request-otp")
+    public ResponseEntity<RequestOtpResponse> requestOtp(@RequestBody RequestOtpRequest request) {
+        return ResponseEntity.ok(otpAuthService.requestOtp(request));
     }
 
-    /** 🧾 User Registration (email + password) **/
-    @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
-        return ResponseEntity.ok(authService.register(request));
+    @PostMapping("/verify-otp")
+    public ResponseEntity<VerifyOtpResponse> verifyOtp(@RequestBody VerifyOtpRequest request) {
+        return ResponseEntity.ok(otpAuthService.verifyOtp(request));
     }
 
-    /** 🔐 User Login (email + password) **/
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        return ResponseEntity.ok(authService.login(request));
+    @PostMapping("/complete-profile")
+    public ResponseEntity<AuthResponse> completeProfile(@RequestBody CompleteProfileRequest request) {
+        return ResponseEntity.ok(otpAuthService.completeProfile(request));
     }
 
-    /** 🌐 Google Sign-In **/
-    @PostMapping("/google")
-    public ResponseEntity<AuthResponse> googleLogin(@RequestBody GoogleAuthRequest request) {
-        return ResponseEntity.ok(googleAuthService.loginWithGoogle(request));
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponse> refresh(@RequestBody RefreshTokenRequest req) {
+        return ResponseEntity.ok(otpAuthService.refresh(req.getRefreshToken()));
     }
 
-    /** 🧠 Optional health/test endpoint **/
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestBody RefreshTokenRequest req) {
+        otpAuthService.logout(req.getRefreshToken());
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/health")
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("✅ AuthController is up and running");
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("Auth stack is up");
     }
 }

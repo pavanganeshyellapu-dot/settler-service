@@ -9,12 +9,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthResponse {
-    private String token;
+
+    private UUID userId;
     private String email;
+    private String phone;
     private String displayName;
     private String role;
-    private String user;
-    private String id;
 
+    private String accessToken;
+    private String refreshToken;
 
+    private boolean isNewUser; // true = profile just created
 }

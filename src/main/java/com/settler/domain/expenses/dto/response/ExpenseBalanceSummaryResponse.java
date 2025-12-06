@@ -10,11 +10,11 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GroupBalanceResponse {
+public class ExpenseBalanceSummaryResponse {
     private Map<UUID, BigDecimal> userBalances;
     private List<String> simplifiedSummary; // "User A owes User B ₹100"
 
-    public static GroupBalanceResponse fromBalances(Map<UUID, BigDecimal> balances) {
+    public static ExpenseBalanceSummaryResponse fromBalances(Map<UUID, BigDecimal> balances) {
         List<String> summary = new ArrayList<>();
 
         // Simplify into readable text (optional logic)
@@ -27,7 +27,7 @@ public class GroupBalanceResponse {
             }
         }
 
-        return GroupBalanceResponse.builder()
+        return ExpenseBalanceSummaryResponse.builder()
                 .userBalances(balances)
                 .simplifiedSummary(summary)
                 .build();
